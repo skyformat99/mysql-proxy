@@ -1,0 +1,1148 @@
+2015/10/29 11:10:20 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:11:14 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:13:17 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:13:20 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:14:37 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:14:39 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:14:41 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:15:36 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:16:33 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:18:27 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:18:29 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:19:32 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:19:40 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:19:42 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:19:43 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:19:52 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:19:54 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:19:55 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:20:42 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:20:44 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:20:47 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:21:37 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:21:39 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:21:41 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:21:42 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:22:04 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not allowed to access this page.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/GiiModule.php:170
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(263): GiiModule->beforeControllerAction(Object(DefaultController), Object(CInlineAction))
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#5 {main}
+REQUEST_URI=/gii
+---
+2015/10/29 11:23:38 [error] [php] include(MDbConnection.php): failed to open stream: No such file or directory (/Users/mengzeliang1/Work/MZGlobal/public/framework/YiiBase.php:427)
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/YiiBase.php(196): import()
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CModule.php(386): createComponent()
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CModule.php(103): CWebApplication->getComponent()
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/generators/model/ModelCode.php(60): CWebApplication->__get()
+#4 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CFormModel.php(39): ModelCode->init()
+#5 /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/CCodeGenerator.php(153): ModelCode->__construct()
+#6 /Users/mengzeliang1/Work/MZGlobal/public/framework/gii/CCodeGenerator.php(63): ModelGenerator->prepare()
+#7 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/actions/CInlineAction.php(49): ModelGenerator->actionIndex()
+#8 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(308): CInlineAction->runWithParams()
+#9 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(286): ModelGenerator->runAction()
+#10 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(265): ModelGenerator->runActionWithFilters()
+#11 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): ModelGenerator->run()
+#12 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CWebApplication->run()
+REQUEST_URI=/gii/model/index.html
+in /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php (48)
+2015/10/29 14:19:12 [error] [php] include(HomeComponent.php): failed to open stream: No such file or directory (/Users/mengzeliang1/Work/MZGlobal/public/framework/YiiBase.php:427)
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/controllers/HomeController.php(17): spl_autoload_call()
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(286): HomeController->runAction()
+#4 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(265): HomeController->runActionWithFilters()
+#5 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): HomeController->run()
+#6 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CWebApplication->run()
+REQUEST_URI=/home/Index
+in /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/controllers/HomeController.php (17)
+in /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php (48)
+2015/10/29 15:19:15 [error] [exception.CException] exception 'CException' with message 'Property "CDbCriteria.0" is not defined.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/db/schema/CDbCriteria.php(160): CComponent->__set('0', 'fund_name')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/db/schema/CDbCommandBuilder.php(585): CDbCriteria->__construct(Array)
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/db/schema/CDbCommandBuilder.php(661): CDbCommandBuilder->createCriteria(Array, Array)
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/db/ar/CActiveRecord.php(1518): CDbCommandBuilder->createColumnCriteria(Object(CMysqlTableSchema), Array, Array, Array, '`t`.')
+#4 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/service/HomeService.php(55): CActiveRecord->findByAttributes(Array, Array)
+#5 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/controllers/HomeController.php(20): HomeService->getFund('000003')
+#6 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#7 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#9 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('Index')
+#11 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('home/Index')
+#12 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#13 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#14 {main}
+REQUEST_URI=/home/Index
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/10/29 15:34:27 [error] [exception.CException] exception 'CException' with message 'Property "Article.countFund" is not defined.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/db/ar/CActiveRecord.php(161): CComponent->__set('countFund', 2)
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CModel.php(607): CActiveRecord->__set('countFund', 2)
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/service/HomeService.php(40): CModel->offsetSet('countFund', 2)
+#3 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/controllers/HomeController.php(24): HomeService->getRecommendArticle()
+#4 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#5 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('Index')
+#9 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('home/Index')
+#10 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#12 {main}
+REQUEST_URI=/home/Index
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/10/29 15:35:27 [error] [exception.CException] exception 'CException' with message 'Property "Article.countFund" is not defined.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/db/ar/CActiveRecord.php(161): CComponent->__set('countFund', 2)
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CModel.php(607): CActiveRecord->__set('countFund', 2)
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/service/HomeService.php(45): CModel->offsetSet('countFund', 2)
+#3 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/controllers/HomeController.php(24): HomeService->getRecommendArticle()
+#4 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#5 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('Index')
+#9 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('home/Index')
+#10 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#12 {main}
+REQUEST_URI=/home/Index
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/10/29 16:04:31 [error] [exception.CException] exception 'CException' with message 'Property "Article.countFund" is not defined.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/db/ar/CActiveRecord.php(161): CComponent->__set('countFund', 2)
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CModel.php(607): CActiveRecord->__set('countFund', 2)
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/service/HomeService.php(45): CModel->offsetSet('countFund', 2)
+#3 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/controllers/HomeController.php(24): HomeService->getRecommendArticle()
+#4 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#5 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('Index')
+#9 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('home/Index')
+#10 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#12 {main}
+REQUEST_URI=/home/Index
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/10/29 16:09:51 [error] [php] Trying to get property of non-object (/Users/mengzeliang1/Work/MZGlobal/gay_web/protected/service/HomeService.php:69)
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(286): HomeController->runAction()
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(265): HomeController->runActionWithFilters()
+#4 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): HomeController->run()
+#5 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#6 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#7 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CWebApplication->run()
+REQUEST_URI=/home/Index
+in /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/service/HomeService.php (69)
+in /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/service/HomeService.php (46)
+in /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/controllers/HomeController.php (24)
+2015/10/29 16:34:09 [error] [exception.CException] exception 'CException' with message 'Property "Article.FundList" is not defined.' in /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/db/ar/CActiveRecord.php(161): CComponent->__set('FundList', Array)
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CModel.php(607): CActiveRecord->__set('FundList', Array)
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/service/HomeService.php(46): CModel->offsetSet('FundList', Array)
+#3 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/controllers/HomeController.php(24): HomeService->getRecommendArticle()
+#4 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#5 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#7 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('Index')
+#9 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('home/Index')
+#10 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#12 {main}
+REQUEST_URI=/home/Index
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/10/29 16:37:25 [error] [php] array_merge(): Argument #1 is not an array (/Users/mengzeliang1/Work/MZGlobal/gay_web/protected/service/HomeService.php:45)
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(286): HomeController->runAction()
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(265): HomeController->runActionWithFilters()
+#4 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): HomeController->run()
+#5 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#6 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#7 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CWebApplication->run()
+REQUEST_URI=/home/Index
+in /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/service/HomeService.php (45)
+in /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/controllers/HomeController.php (24)
+in /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php (48)
+2015/10/29 17:21:34 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'stocks' in 'field list'. The SQL statement executed was: SELECT `id`,`title`,`img_url`,`category_id`,`author`,`keywords`,`stocks`,`image` FROM `mz_article` `t` WHERE (status=:ycp0) AND (recommend=:ycp1) ORDER BY `sort` ASC LIMIT 10. Bound with :ycp0='1', :ycp1='1'.
+in /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/service/HomeService.php (35)
+in /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/controllers/HomeController.php (24)
+in /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php (48)
+2015/10/29 17:21:34 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'stocks' in 'field list'. The SQL statement executed was: SELECT `id`,`title`,`img_url`,`category_id`,`author`,`keywords`,`stocks`,`image` FROM `mz_article` `t` WHERE (status=:ycp0) AND (recommend=:ycp1) ORDER BY `sort` ASC LIMIT 10. Bound with :ycp0='1', :ycp1='1'' in /Users/mengzeliang1/Work/MZGlobal/public/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/db/ar/CActiveRecord.php(1351): CDbCommand->queryAll()
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CActiveDataProvider.php(199): CActiveRecord->findAll(Object(CDbCriteria))
+#4 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CDataProvider.php(168): CActiveDataProvider->fetchData()
+#5 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/service/HomeService.php(35): CDataProvider->getData()
+#6 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/controllers/HomeController.php(24): HomeService->getRecommendArticle()
+#7 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#8 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('Index')
+#12 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('home/Index')
+#13 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#15 {main}
+REQUEST_URI=/home/Index
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/10/30 13:11:27 [error] [exception.CException] exception 'CException' with message 'HomeController cannot find the requested view "index".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php:878
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#1 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/controllers/HomeController.php(30): CController->render('index', Array)
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('Index')
+#7 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('home/Index')
+#8 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#10 {main}
+REQUEST_URI=/home/Index
+---
+2015/10/30 14:00:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY `month_rate_1` DESC LIMIT 10' at line 1. The SQL statement executed was: SELECT t.`name`,e.`month_rate_1` FROM `mz_programme` t LEFT JOIN `mz_programme_extend` e ORDER BY `month_rate_1` DESC LIMIT 10.
+in /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/service/HomeService.php (86)
+in /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/controllers/HomeController.php (22)
+in /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php (48)
+2015/10/30 14:00:46 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY `month_rate_1` DESC LIMIT 10' at line 1. The SQL statement executed was: SELECT t.`name`,e.`month_rate_1` FROM `mz_programme` t LEFT JOIN `mz_programme_extend` e ORDER BY `month_rate_1` DESC LIMIT 10' in /Users/mengzeliang1/Work/MZGlobal/public/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/service/HomeService.php(86): CDbCommand->queryAll()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/controllers/HomeController.php(22): HomeService->getHotFundProgramme()
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#4 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('Index')
+#8 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('home/Index')
+#9 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#11 {main}
+REQUEST_URI=/home/Index
+---
+2015/10/30 14:34:36 [error] [exception.CException] exception 'CException' with message 'HomeController cannot find the requested view "index".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php:878
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#1 /Users/mengzeliang1/Work/MZGlobal/gay_web/protected/controllers/HomeController.php(33): CController->render('index', Array)
+#2 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#3 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(282): CController->run('Index')
+#7 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('home/Index')
+#8 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#10 {main}
+REQUEST_URI=/home/Index
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:52:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner1.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner1.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:52:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/code.jpg".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/code...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/code.jpg
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:52:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/hotspot01.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/hots...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/hotspot01.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:52:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner2.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner2.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:52:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/popularComment.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/popu...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/popularComment.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:52:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/figureBg.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/figu...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/figureBg.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:52:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/figureIntroduction.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/figu...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/figureIntroduction.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:56:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/code.jpg".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/code...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/code.jpg
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:56:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/hotspot01.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/hots...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/hotspot01.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:56:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner2.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner2.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:56:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/popularComment.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/popu...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/popularComment.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:56:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner1.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner1.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:56:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/figureBg.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/figu...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/figureBg.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:56:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/figureIntroduction.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/figu...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/figureIntroduction.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:56:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/figureBg.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/figu...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/figureBg.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:56:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/code.jpg".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/code...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/code.jpg
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:56:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/hotspot01.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/hots...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/hotspot01.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:56:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/popularComment.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/popu...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/popularComment.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:56:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner2.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner2.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:56:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner1.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner1.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:56:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/figureIntroduction.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/figu...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/figureIntroduction.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:57:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/code.jpg".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/code...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/code.jpg
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:57:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner2.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner2.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 13:57:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner1.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner1.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:08:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner1.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner1.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:08:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/code.jpg".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/code...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/code.jpg
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:08:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner2.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner2.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:16:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner1.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner1.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:16:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/code.jpg".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/code...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/code.jpg
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:16:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner2.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner2.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:16:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner1.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner1.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:16:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner2.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner2.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:16:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/popularComment.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/popu...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/popularComment.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:16:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/figureIntroduction.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/figu...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/figureIntroduction.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:16:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/code.jpg".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/code...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/code.jpg
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:16:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/figureBg.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/figu...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/figureBg.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:19:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner1.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner1.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:19:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/code.jpg".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/code...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/code.jpg
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:19:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner2.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner2.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:19:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/popularComment.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/popu...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/popularComment.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:19:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/figureBg.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/figu...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/figureBg.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:19:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/figureIntroduction.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/figu...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/figureIntroduction.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:37:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/code.jpg".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/code...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/code.jpg
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:37:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner2.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner2.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2015/11/02 14:37:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/web/banner1.png".' in /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/mengzeliang1/Work/MZGlobal/public/framework/web/CWebApplication.php(141): CWebApplication->runController('images/web/bann...')
+#1 /Users/mengzeliang1/Work/MZGlobal/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/mengzeliang1/Work/MZGlobal/gay_web/index.php(48): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/web/banner1.png
+HTTP_REFERER=http://www.gay_web.com/home/Index
+---
+2017/03/20 10:14:03 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "homepage". in /src/xinhua/waibao/public/framework/web/CController.php:483
+Stack trace:
+#0 /src/xinhua/waibao/public/framework/web/CController.php(270): CController->missingAction('homepage')
+#1 /src/xinhua/waibao/public/framework/web/CWebApplication.php(284): CController->run('homepage')
+#2 /src/xinhua/waibao/public/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#3 /src/xinhua/waibao/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /src/xinhua/waibao/gay_web/index.php(52): CApplication->run()
+#5 {main}
+REQUEST_URI=/
+---
+2017/03/20 10:14:13 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "homepage". in /src/xinhua/waibao/public/framework/web/CController.php:483
+Stack trace:
+#0 /src/xinhua/waibao/public/framework/web/CController.php(270): CController->missingAction('homepage')
+#1 /src/xinhua/waibao/public/framework/web/CWebApplication.php(284): CController->run('homepage')
+#2 /src/xinhua/waibao/public/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#3 /src/xinhua/waibao/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /src/xinhua/waibao/gay_web/index.php(52): CApplication->run()
+#5 {main}
+REQUEST_URI=/
+---
+2017/03/20 10:16:11 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "index". in /src/xinhua/waibao/public/framework/web/CWebApplication.php:288
+Stack trace:
+#0 /src/xinhua/waibao/public/framework/web/CWebApplication.php(142): CWebApplication->runController('index')
+#1 /src/xinhua/waibao/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /src/xinhua/waibao/gay_web/index.php(52): CApplication->run()
+#3 {main}
+REQUEST_URI=/index
+---
+2017/03/20 10:16:17 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "homepage". in /src/xinhua/waibao/public/framework/web/CController.php:483
+Stack trace:
+#0 /src/xinhua/waibao/public/framework/web/CController.php(270): CController->missingAction('homepage')
+#1 /src/xinhua/waibao/public/framework/web/CWebApplication.php(284): CController->run('homepage')
+#2 /src/xinhua/waibao/public/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#3 /src/xinhua/waibao/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /src/xinhua/waibao/gay_web/index.php(52): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php
+---
+2017/03/20 10:18:30 [error] [exception.CException] CException: HomeController cannot find the requested view "/home/index.php". in /src/xinhua/waibao/public/framework/web/CController.php:878
+Stack trace:
+#0 /src/xinhua/waibao/public/framework/web/CController.php(782): CController->renderPartial('/home/index.php', NULL, true)
+#1 /src/xinhua/waibao/gay_web/protected/controllers/HomeController.php(12): CController->render('/home/index.php')
+#2 /src/xinhua/waibao/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#3 /src/xinhua/waibao/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /src/xinhua/waibao/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /src/xinhua/waibao/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /src/xinhua/waibao/public/framework/web/CWebApplication.php(284): CController->run('index')
+#7 /src/xinhua/waibao/public/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#8 /src/xinhua/waibao/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /src/xinhua/waibao/gay_web/index.php(52): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php
+---
+2017/03/20 10:18:34 [error] [exception.CException] CException: HomeController cannot find the requested view "/home/index.php". in /src/xinhua/waibao/public/framework/web/CController.php:878
+Stack trace:
+#0 /src/xinhua/waibao/public/framework/web/CController.php(782): CController->renderPartial('/home/index.php', NULL, true)
+#1 /src/xinhua/waibao/gay_web/protected/controllers/HomeController.php(12): CController->render('/home/index.php')
+#2 /src/xinhua/waibao/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#3 /src/xinhua/waibao/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /src/xinhua/waibao/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /src/xinhua/waibao/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /src/xinhua/waibao/public/framework/web/CWebApplication.php(284): CController->run('index')
+#7 /src/xinhua/waibao/public/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#8 /src/xinhua/waibao/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /src/xinhua/waibao/gay_web/index.php(52): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2017/03/20 10:18:35 [error] [exception.CException] CException: HomeController cannot find the requested view "/home/index.php". in /src/xinhua/waibao/public/framework/web/CController.php:878
+Stack trace:
+#0 /src/xinhua/waibao/public/framework/web/CController.php(782): CController->renderPartial('/home/index.php', NULL, true)
+#1 /src/xinhua/waibao/gay_web/protected/controllers/HomeController.php(12): CController->render('/home/index.php')
+#2 /src/xinhua/waibao/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#3 /src/xinhua/waibao/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /src/xinhua/waibao/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /src/xinhua/waibao/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /src/xinhua/waibao/public/framework/web/CWebApplication.php(284): CController->run('index')
+#7 /src/xinhua/waibao/public/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#8 /src/xinhua/waibao/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /src/xinhua/waibao/gay_web/index.php(52): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2017/03/20 10:18:36 [error] [exception.CException] CException: HomeController cannot find the requested view "/home/index.php". in /src/xinhua/waibao/public/framework/web/CController.php:878
+Stack trace:
+#0 /src/xinhua/waibao/public/framework/web/CController.php(782): CController->renderPartial('/home/index.php', NULL, true)
+#1 /src/xinhua/waibao/gay_web/protected/controllers/HomeController.php(12): CController->render('/home/index.php')
+#2 /src/xinhua/waibao/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#3 /src/xinhua/waibao/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /src/xinhua/waibao/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /src/xinhua/waibao/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /src/xinhua/waibao/public/framework/web/CWebApplication.php(284): CController->run('index')
+#7 /src/xinhua/waibao/public/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#8 /src/xinhua/waibao/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /src/xinhua/waibao/gay_web/index.php(52): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2017/03/20 10:18:36 [error] [exception.CException] CException: HomeController cannot find the requested view "/home/index.php". in /src/xinhua/waibao/public/framework/web/CController.php:878
+Stack trace:
+#0 /src/xinhua/waibao/public/framework/web/CController.php(782): CController->renderPartial('/home/index.php', NULL, true)
+#1 /src/xinhua/waibao/gay_web/protected/controllers/HomeController.php(12): CController->render('/home/index.php')
+#2 /src/xinhua/waibao/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#3 /src/xinhua/waibao/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /src/xinhua/waibao/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /src/xinhua/waibao/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /src/xinhua/waibao/public/framework/web/CWebApplication.php(284): CController->run('index')
+#7 /src/xinhua/waibao/public/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#8 /src/xinhua/waibao/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /src/xinhua/waibao/gay_web/index.php(52): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2017/03/20 10:18:36 [error] [exception.CException] CException: HomeController cannot find the requested view "/home/index.php". in /src/xinhua/waibao/public/framework/web/CController.php:878
+Stack trace:
+#0 /src/xinhua/waibao/public/framework/web/CController.php(782): CController->renderPartial('/home/index.php', NULL, true)
+#1 /src/xinhua/waibao/gay_web/protected/controllers/HomeController.php(12): CController->render('/home/index.php')
+#2 /src/xinhua/waibao/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#3 /src/xinhua/waibao/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /src/xinhua/waibao/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /src/xinhua/waibao/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /src/xinhua/waibao/public/framework/web/CWebApplication.php(284): CController->run('index')
+#7 /src/xinhua/waibao/public/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#8 /src/xinhua/waibao/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /src/xinhua/waibao/gay_web/index.php(52): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2017/03/20 10:18:54 [error] [exception.CException] CException: HomeController cannot find the requested view "/home/index.php". in /src/xinhua/waibao/public/framework/web/CController.php:878
+Stack trace:
+#0 /src/xinhua/waibao/public/framework/web/CController.php(782): CController->renderPartial('/home/index.php', NULL, true)
+#1 /src/xinhua/waibao/gay_web/protected/controllers/HomeController.php(12): CController->render('/home/index.php')
+#2 /src/xinhua/waibao/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#3 /src/xinhua/waibao/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /src/xinhua/waibao/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /src/xinhua/waibao/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /src/xinhua/waibao/public/framework/web/CWebApplication.php(284): CController->run('index')
+#7 /src/xinhua/waibao/public/framework/web/CWebApplication.php(142): CWebApplication->runController('Home/index')
+#8 /src/xinhua/waibao/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /src/xinhua/waibao/gay_web/index.php(52): CApplication->run()
+#10 {main}
+REQUEST_URI=/Home/index
+---
+2017/03/20 10:18:58 [error] [exception.CException] CException: HomeController cannot find the requested view "/home/index.php". in /src/xinhua/waibao/public/framework/web/CController.php:878
+Stack trace:
+#0 /src/xinhua/waibao/public/framework/web/CController.php(782): CController->renderPartial('/home/index.php', NULL, true)
+#1 /src/xinhua/waibao/gay_web/protected/controllers/HomeController.php(12): CController->render('/home/index.php')
+#2 /src/xinhua/waibao/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#3 /src/xinhua/waibao/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /src/xinhua/waibao/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /src/xinhua/waibao/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /src/xinhua/waibao/public/framework/web/CWebApplication.php(284): CController->run('index')
+#7 /src/xinhua/waibao/public/framework/web/CWebApplication.php(142): CWebApplication->runController('Home/index')
+#8 /src/xinhua/waibao/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /src/xinhua/waibao/gay_web/index.php(52): CApplication->run()
+#10 {main}
+REQUEST_URI=/Home/index
+---
+2017/03/20 10:19:04 [error] [exception.CException] CException: HomeController cannot find the requested view "/home/index.php". in /src/xinhua/waibao/public/framework/web/CController.php:878
+Stack trace:
+#0 /src/xinhua/waibao/public/framework/web/CController.php(782): CController->renderPartial('/home/index.php', NULL, true)
+#1 /src/xinhua/waibao/gay_web/protected/controllers/HomeController.php(12): CController->render('/home/index.php')
+#2 /src/xinhua/waibao/public/framework/web/actions/CInlineAction.php(49): HomeController->actionIndex()
+#3 /src/xinhua/waibao/public/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /src/xinhua/waibao/public/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /src/xinhua/waibao/public/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /src/xinhua/waibao/public/framework/web/CWebApplication.php(284): CController->run('index')
+#7 /src/xinhua/waibao/public/framework/web/CWebApplication.php(142): CWebApplication->runController('Home/index')
+#8 /src/xinhua/waibao/public/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#9 /src/xinhua/waibao/gay_web/index.php(52): CApplication->run()
+#10 {main}
+REQUEST_URI=/Home/index
+---
+2017/03/20 14:31:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'eguanjia.mz_user' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `mz_user`.
+in /src/xinhua/waibao/public/models/MyDBCActiveRecord.php (12)
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (14)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:47:31 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'.
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (64)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:47:31 [error] [application] CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'
+in /src/xinhua/waibao/public/classes/utils/Logger.php (116)
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (76)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:04 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'.
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (64)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:04 [error] [application] CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'
+in /src/xinhua/waibao/public/classes/utils/Logger.php (116)
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (76)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:15 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'.
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (64)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:15 [error] [application] CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'
+in /src/xinhua/waibao/public/classes/utils/Logger.php (116)
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (77)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:16 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'.
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (64)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:16 [error] [application] CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'
+in /src/xinhua/waibao/public/classes/utils/Logger.php (116)
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (77)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:17 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'.
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (64)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:17 [error] [application] CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'
+in /src/xinhua/waibao/public/classes/utils/Logger.php (116)
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (77)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:57 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'.
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (67)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:57 [error] [application] CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'
+in /src/xinhua/waibao/public/classes/utils/Logger.php (116)
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (80)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:59 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'.
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (67)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:59 [error] [application] CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'
+in /src/xinhua/waibao/public/classes/utils/Logger.php (116)
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (80)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:59 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'.
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (67)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:59 [error] [application] CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'
+in /src/xinhua/waibao/public/classes/utils/Logger.php (116)
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (80)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:59 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'.
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (67)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:48:59 [error] [application] CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'
+in /src/xinhua/waibao/public/classes/utils/Logger.php (116)
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (80)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:49:05 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'.
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (67)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 22:49:05 [error] [application] CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'
+in /src/xinhua/waibao/public/classes/utils/Logger.php (116)
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (80)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/20 14:49:32 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_mobile' in 'where clause'. The SQL statement executed was: select 1 from user where `user_mobile`='15811413647'.
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (79)
+in /src/xinhua/waibao/gay_web/index.php (52)
+2017/03/21 01:39:42 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'eguanjia.mz_user' doesn't exist. The SQL statement executed was: select 1 from mz_user where `user_mobile`='15811413647'.
+in /src/xinhua/waibao/public/models/GayUser.php (365)
+in /src/xinhua/waibao/gay_web/protected/controllers/ajax/AjaxaccountController.php (48)
+in /src/xinhua/waibao/gay_web/index.php (52)
