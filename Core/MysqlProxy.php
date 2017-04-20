@@ -69,7 +69,7 @@ class MysqlProxy
 
         $this->serv = new \swoole_server('0.0.0.0', '9536', SWOOLE_PROCESS, SWOOLE_SOCK_TCP);
         $this->serv->set([
-            'worker_num' => 2,
+            'worker_num' => 1,
             'task_worker_num' => 2,
             'dispatch_mode' => 2,
             'open_length_check' => 1,
@@ -97,39 +97,41 @@ class MysqlProxy
     public function getConfig()
     {
         $env = get_cfg_var('env.name') ? get_cfg_var('env.name') : 'product';
-        $jsonConfig = \CloudConfig::get("platform/proxy_shequ", "test");
-        $config = json_decode($jsonConfig, true);
-//        $config = array(
-//            'test' => array(//test is tes db                                                                                                                                                                               
-//                'master' => array(
-//                    'host' => '10.10.2.73',
-//                    'port' => 3306,
-//                    'user' => 'root',
-//                    'password' => 'woshiguo35',
-//                    'database' => 'test',
-//                    'charset' => 'utf8',
-//                ),
-//                'slave' => array(
-//                    array(
-//                        'host' => '10.10.2.73',
-//                        'port' => 3306,
-//                        'user' => 'root',
-//                        'password' => 'woshiguo35',
-//                        'database' => 'test',
-//                        'charset' => 'utf8',
-//                    ),
-//                    array(
-//                        'host' => '10.10.2.73',
-//                        'port' => 3306,
-//                        'user' => 'root',
-//                        'password' => 'woshiguo35',
-//                        'database' => 'test',
-//                        'charset' => 'utf8',
-//                    ),
-//                ),
-//            )
-//        );
+        //$jsonConfig = \CloudConfig::get("platform/proxy_shequ", "test");
+        //$config = json_decode($jsonConfig, true);
+        $config = array(
+            'test' => array(//test is tes db                                                                                                                                                                               
+                'master' => array(
+                    'host' => '10.10.2.73',
+                    'port' => 3306,
+                    'user' => 'root',
+                    'password' => 'woshiguo35',
+                    'database' => 'test',
+                    'charset' => 'utf8',
+                ),
+                'slave' => array(
+                    array(
+                        'host' => '10.10.2.73',
+                        'port' => 3306,
+                        'user' => 'root',
+                        'password' => 'woshiguo35',
+                        'database' => 'test',
+                        'charset' => 'utf8',
+                    ),
+                ),
+            )
+        );
         $this->targetConfig = $config;
+//        foreach ($config as $dbName => $conf)
+//        {
+//            $entity = $conf['master'];
+//            $dataSource = $entity['host'] . ":" . $entity['port'] . ":" . $dbName;
+//            if (!isset($this->pool[$dataSource]))
+//            {
+//                $pool = new MySQL($entity, 20, $this->table);
+//                $this->pool[$dataSource] = $pool;
+//            }
+//        }
     }
 
     public function start()
@@ -151,6 +153,7 @@ class MysqlProxy
             $this->protocal->sendConnectOk($serv, $fd);
             $this->client[$fd]['status'] = self::CONNECT_SEND_ESTA;
             $this->client[$fd]['dbName'] = $dbName;
+            //   $this->client[$fd]['clientAuthData'] = $data;
             return;
         }
 
@@ -184,13 +187,14 @@ class MysqlProxy
             $this->client[$fd]['start'] = microtime(true) * 1000;
             $this->client[$fd]['sql'] = $sql;
             $this->client[$fd]['datasource'] = $dataSource;
-            $this->pool[$dataSource]->query($sql, array($this, 'OnResult'), $fd);
+            $this->pool[$dataSource]->query($data, array($this, 'OnResult'), $fd);
+//             $this->pool[$dataSource]->query($sql, array($this, 'OnResult'), $fd);
         }
     }
 
-    public function OnResult(\swoole_mysql $db, $r, $fd)
+    public function OnResult($binaryData, $fd)
     {
-        $binaryData = $db->getBuffer();
+//        $binaryData = $db->getBuffer();
         $end = microtime(true) * 1000;
         //$binaryData = $serv->packErrorData(1000,"testerror");
         //$binaryData = $this->protocal->packResultData($r);
@@ -227,7 +231,6 @@ class MysqlProxy
         unset($this->client[$fd]);
         //todo del from client
         $this->table->decr(MYSQL_CONN_KEY, "client_count");
-        echo "close";
     }
 
 //    public function OnStart($serv)
