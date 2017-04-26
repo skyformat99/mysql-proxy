@@ -4,8 +4,7 @@ namespace Core;
 
 require '/data/www/public/sdk/autoload.php';
 
-class MysqlProxy
-{
+class MysqlProxy {
 
     private $serv = null;
 
@@ -42,18 +41,15 @@ class MysqlProxy
 
     private $targetConfig = array();
 
-    private function createTable()
-    {
+    private function createTable() {
         $this->table = new \swoole_table(1024);
         $arr = [];
-        foreach ($this->targetConfig as $dbname => $config)
-        {
+        foreach ($this->targetConfig as $dbname => $config) {
             $conf = $config['master'];
             $dataSource = $conf['host'] . ":" . $conf['port'] . ":" . $dbname;
             $this->table->column($dataSource, \swoole_table::TYPE_INT, 4);
             $arr[$dataSource] = 0;
-            foreach ($config['slave'] as $sconfig)
-            {
+            foreach ($config['slave'] as $sconfig) {
                 $dataSource = $sconfig['host'] . ":" . $sconfig['port'] . ":" . $dbname;
                 $this->table->column($dataSource, \swoole_table::TYPE_INT, 4);
                 $arr[$dataSource] = 0;
@@ -64,8 +60,7 @@ class MysqlProxy
         // $this->table->set(MYSQL_CONN_KEY, $arr);
     }
 
-    public function init()
-    {
+    public function init() {
 
         $this->serv = new \swoole_server('0.0.0.0', '9536', SWOOLE_PROCESS, SWOOLE_SOCK_TCP);
         $this->serv->set([
@@ -94,8 +89,7 @@ class MysqlProxy
         });
     }
 
-    public function getConfig()
-    {
+    public function getConfig() {
         $env = get_cfg_var('env.name') ? get_cfg_var('env.name') : 'product';
         //$jsonConfig = \CloudConfig::get("platform/proxy_shequ", "test");
         //$config = json_decode($jsonConfig, true);
@@ -134,18 +128,14 @@ class MysqlProxy
 //        }
     }
 
-    public function start()
-    {
+    public function start() {
         $this->serv->start();
     }
 
-    public function OnReceive($serv, $fd, $from_id, $data)
-    {
-        if ($this->client[$fd]['status'] == self::CONNECT_SEND_AUTH)
-        {
+    public function OnReceive($serv, $fd, $from_id, $data) {
+        if ($this->client[$fd]['status'] == self::CONNECT_SEND_AUTH) {
             $dbName = $this->protocal->getDbName($data);
-            if (!isset($this->targetConfig[$dbName]))
-            {
+            if (!isset($this->targetConfig[$dbName])) {
                 echo "db $dbName can not find\n";
                 $binaryData = $this->protocal->packErrorData(10000, "db '$dbName' can not find in mysql proxy config");
                 return $this->serv->send($fd, $binaryData);
@@ -157,30 +147,25 @@ class MysqlProxy
             return;
         }
 
-        if ($this->client[$fd]['status'] == self::CONNECT_SEND_ESTA)
-        {
+        if ($this->client[$fd]['status'] == self::CONNECT_SEND_ESTA) {
             $ret = $this->protocal->getSql($data);
             $cmd = $ret['cmd'];
             $sql = $ret['sql'];
-            if ($cmd !== self::COM_QUERY)
-            {
+            if ($cmd !== self::COM_QUERY) {
                 $binary = $this->protocal->packOkData(0, 0);
                 return $this->serv->send($fd, $binary);
             }
             $dbName = $this->client[$fd]['dbName'];
             $pre = substr($sql, 0, 5);
-            if (stristr($pre, "select") || stristr($pre, "show"))
-            {
+            if (stristr($pre, "select") || stristr($pre, "show")) {
                 $config = $this->targetConfig[$dbName]['master'];
-            } else
-            {
+            } else {
                 $count = count($this->targetConfig[$dbName]['slave']);
                 $index = random_int(0, $count - 1); //随机均衡
                 $config = $this->targetConfig[$dbName]['slave'][$index];
             }
             $dataSource = $config['host'] . ":" . $config['port'] . ":" . $dbName;
-            if (!isset($this->pool[$dataSource]))
-            {
+            if (!isset($this->pool[$dataSource])) {
                 $pool = new MySQL($config, 20, $this->table);
                 $this->pool[$dataSource] = $pool;
             }
@@ -192,42 +177,39 @@ class MysqlProxy
         }
     }
 
-    public function OnResult($binaryData, $fd)
-    {
+    public function OnResult($binaryData, $fd) {
 //        $binaryData = $db->getBuffer();
         $end = microtime(true) * 1000;
         //$binaryData = $serv->packErrorData(1000,"testerror");
         //$binaryData = $this->protocal->packResultData($r);
-        $this->serv->send($fd, $binaryData);
-        $logData = array(
-            'start' => $this->client[$fd]['start'],
-            'size' => strlen($binaryData),
-            'end' => $end,
-            'sql' => $this->client[$fd]['sql'],
-            'datasource' => $this->client[$fd]['datasource'],
-            'client_ip' => $this->client[$fd]['client_ip'],
-        );
-        $this->serv->task($logData);
+        if (isset($this->client[$fd])) {//有可能已经关闭了
+            $this->serv->send($fd, $binaryData);
+            $logData = array(
+                'start' => $this->client[$fd]['start'],
+                'size' => strlen($binaryData),
+                'end' => $end,
+                'sql' => $this->client[$fd]['sql'],
+                'datasource' => $this->client[$fd]['datasource'],
+                'client_ip' => $this->client[$fd]['client_ip'],
+            );
+            $this->serv->task($logData);
+        }
     }
 
-    public function OnConnect($serv, $fd)
-    {
+    public function OnConnect($serv, $fd) {
         $this->client[$fd]['status'] = self::CONNECT_START;
         $this->protocal->sendConnectAuth($serv, $fd);
         $this->client[$fd]['status'] = self::CONNECT_SEND_AUTH;
         $info = $serv->getClientInfo($fd);
-        if ($info)
-        {
+        if ($info) {
             $this->client[$fd]['client_ip'] = $info['remote_ip'];
-        } else
-        {
+        } else {
             $this->client[$fd]['client_ip'] = 0;
         }
         $this->table->incr(MYSQL_CONN_KEY, "client_count");
     }
 
-    public function OnClose($serv, $fd, $from_id)
-    {
+    public function OnClose($serv, $fd, $from_id) {
         unset($this->client[$fd]);
         //todo del from client
         $this->table->decr(MYSQL_CONN_KEY, "client_count");
@@ -238,30 +220,24 @@ class MysqlProxy
 //        
 //    }
 
-    public function OnWorkerStart($serv, $worker_id)
-    {
-        if ($worker_id >= $serv->setting['worker_num'])
-        {
+    public function OnWorkerStart($serv, $worker_id) {
+        if ($worker_id >= $serv->setting['worker_num']) {
             $serv->tick(3000, array($this, "OnTimer"));
             swoole_set_process_name("mysql proxy task");
             $result = swoole_get_local_ip();
             $this->localip = $result["eth0"];
-        } else
-        {
+        } else {
             swoole_set_process_name("mysql proxy worker");
         }
     }
 
 //____________________________________________________task worker__________________________________________________
     //task callbakc 上报连接数
-    public function OnTimer($serv)
-    {
+    public function OnTimer($serv) {
         $count = $this->table->get(MYSQL_CONN_KEY);
-        if (empty($this->redis))
-        {
+        if (empty($this->redis)) {
             $client = new \redis;
-            if ($client->pconnect($this->redisHost, $this->redisPort))
-            {
+            if ($client->pconnect($this->redisHost, $this->redisPort)) {
                 $this->redis = $client;
             }
         }
@@ -279,23 +255,18 @@ class MysqlProxy
         $this->redis->expire(MYSQL_CONN_REDIS_KEY, 60);
     }
 
-    public function OnTask($serv, $task_id, $from_id, $data)
-    {
-        if (empty($this->redis))
-        {
+    public function OnTask($serv, $task_id, $from_id, $data) {
+        if (empty($this->redis)) {
             $client = new \redis;
-            if ($client->pconnect($this->redisHost, $this->redisPort))
-            {
+            if ($client->pconnect($this->redisHost, $this->redisPort)) {
                 $this->redis = $client;
-            } else
-            {
+            } else {
                 return;
             }
         }
         $date = date("Y-m-d");
         $expireFlag = false;
-        if (!$this->redis->exists(REDIS_SLOW . $date))
-        {
+        if (!$this->redis->exists(REDIS_SLOW . $date)) {
             $expireFlag = true;
         }
         $ser = \swoole_serialize::pack($data);
@@ -304,8 +275,7 @@ class MysqlProxy
         $this->redis->zadd(REDIS_SLOW . $date, $time, $ser);
         //$this->redis->lPush('sqllist' . $date, $ser);
 
-        if ($expireFlag)
-        {
+        if ($expireFlag) {
             $this->redis->expireAt(REDIS_BIG . $date, strtotime(date("Y-m-d 23:59:59"))); //凌晨过期
             $this->redis->expireAt(REDIS_SLOW . $date, strtotime(date("Y-m-d 23:59:59"))); //凌晨过期
             // $this->redis->expireAt('sqllist' . $date, strtotime(date("Y-m-d 23:59:59")) - time()); //凌晨过期
