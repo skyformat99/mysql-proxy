@@ -130,23 +130,22 @@ class Pool
     /**
      * 请求资源
      * @param callable $callback
+     * @param fd  哪个客户端链接请求mysql链接
      * @return bool
      */
-    public function request(callable $callback)
-    {
+    public function request(callable $callback, $fd) {
         //入队列
         $this->taskQueue->enqueue($callback);
         //有可用资源
-        if (count($this->idlePool) > 0)
-        {
+        if (count($this->idlePool) > 0) {
             $this->doTask();
         }
         //没有可用的资源, 创建新的连接
-        elseif (count($this->resourcePool) < $this->poolSize and $this->resourceNum < $this->poolSize)
-        {
-            call_user_func($this->createFunction);
+        elseif (count($this->resourcePool) < $this->poolSize and $this->resourceNum < $this->poolSize) {
+            call_user_func($this->createFunction,array($fd));
+            $this->connect($fd);
             $this->resourceNum++;
-            $this->table->incr(MYSQL_CONN_KEY,$this->datasource);
+            $this->table->incr(MYSQL_CONN_KEY, $this->datasource);
         }
     }
 
@@ -194,8 +193,8 @@ class Pool
             }
             return;
         }
-        $callback = $this->taskQueue->dequeue();
-        call_user_func($callback, $resource);
+//        $callback = $this->taskQueue->dequeue();
+//        call_user_func($callback, $resource);
     }
 
     /**

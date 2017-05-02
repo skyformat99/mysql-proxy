@@ -146,7 +146,6 @@ class MysqlProxy {
             //   $this->client[$fd]['clientAuthData'] = $data;
             return;
         }
-
         if ($this->client[$fd]['status'] == self::CONNECT_SEND_ESTA) {
             $ret = $this->protocal->getSql($data);
             $cmd = $ret['cmd'];
@@ -166,14 +165,14 @@ class MysqlProxy {
             }
             $dataSource = $config['host'] . ":" . $config['port'] . ":" . $dbName;
             if (!isset($this->pool[$dataSource])) {
-                $pool = new MySQL($config, 20, $this->table);
+                $pool = new MySQL($config, 20, $this->table, array($this, 'OnResult'));
                 $this->pool[$dataSource] = $pool;
             }
             $this->client[$fd]['start'] = microtime(true) * 1000;
             $this->client[$fd]['sql'] = $sql;
             $this->client[$fd]['datasource'] = $dataSource;
-            $this->pool[$dataSource]->query($data, array($this, 'OnResult'), $fd);
-//             $this->pool[$dataSource]->query($sql, array($this, 'OnResult'), $fd);
+            $this->pool[$dataSource]->query($data, $fd);
+//            $this->pool[$dataSource]->query($sql, array($this, 'OnResult'), $fd);
         }
     }
 
@@ -210,9 +209,13 @@ class MysqlProxy {
     }
 
     public function OnClose($serv, $fd, $from_id) {
-        unset($this->client[$fd]);
         //todo del from client
         $this->table->decr(MYSQL_CONN_KEY, "client_count");
+        //remove from task queue,if possible
+        if (isset($this->client[$fd]['datasource'])) {
+            $this->pool[$this->client[$fd]['datasource']]->removeTask($fd);
+        }
+        unset($this->client[$fd]);
     }
 
 //    public function OnStart($serv)

@@ -10,9 +10,11 @@ define("REDIS_BIG", "sqlbig");
 define("MYSQL_CONN_KEY", "proxy_conn_key");
 define("MYSQL_CONN_REDIS_KEY", "proxy_connection");
 
+define("ERROR_CONN", 10001);
+define("ERROR_AUTH", 10002);
+define("ERROR_QUERY", 10003);
 
-
-
+// no use
 $shequ_test = array(
     'chelun' => array(//test is tes db
         'master' => array(
