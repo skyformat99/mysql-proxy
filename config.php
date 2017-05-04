@@ -18,7 +18,7 @@ define("ERROR_QUERY", 10003);
 $shequ_test = array(
     'chelun' => array(//test is tes db
         'master' => array(
-            'host' => '172.16.0.38',
+            'host' => '10.10.1.23',
             'port' => 3306,
             'user' => 'chelun_test',
             'password' => '4OX36HnN',
@@ -27,7 +27,7 @@ $shequ_test = array(
         ),
         'slave' => array(
             array(
-                'host' => '172.16.0.38',
+                'host' => '10.10.1.23',
                 'port' => 3306,
                 'user' => 'chelun_test',
                 'password' => '4OX36HnN',
@@ -38,7 +38,7 @@ $shequ_test = array(
     ),
     'chelun_home' => array(//test is tes db
         'master' => array(
-            'host' => '172.16.0.38',
+            'host' => '10.10.1.23',
             'port' => 3306,
             'user' => 'chelun_test',
             'password' => '4OX36HnN',
@@ -47,7 +47,7 @@ $shequ_test = array(
         ),
         'slave' => array(
             array(
-                'host' => '172.16.0.38',
+                'host' => '10.10.1.23',
                 'port' => 3306,
                 'user' => 'chelun_test',
                 'password' => '4OX36HnN',
@@ -58,7 +58,7 @@ $shequ_test = array(
     )
     , 'spider' => array(//test is tes db
         'master' => array(
-            'host' => '172.16.0.38',
+            'host' => '10.10.1.23',
             'port' => 3306,
             'user' => 'chelun_test',
             'password' => '4OX36HnN',
@@ -67,7 +67,7 @@ $shequ_test = array(
         ),
         'slave' => array(
             array(
-                'host' => '172.16.0.38',
+                'host' => '10.10.1.23',
                 'port' => 3306,
                 'user' => 'chelun_test',
                 'password' => '4OX36HnN',

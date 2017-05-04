@@ -91,30 +91,93 @@ class MysqlProxy {
 
     public function getConfig() {
         $env = get_cfg_var('env.name') ? get_cfg_var('env.name') : 'product';
-        //$jsonConfig = \CloudConfig::get("platform/proxy_shequ", "test");
-        //$config = json_decode($jsonConfig, true);
-        $config = array(
-            'test' => array(//test is tes db                                                                                                                                                                               
-                'master' => array(
-                    'host' => '10.10.2.73',
-                    'port' => 3306,
-                    'user' => 'root',
-                    'password' => 'woshiguo35',
-                    'database' => 'test',
-                    'charset' => 'utf8',
-                ),
-                'slave' => array(
-                    array(
-                        'host' => '10.10.2.73',
-                        'port' => 3306,
-                        'user' => 'root',
-                        'password' => 'woshiguo35',
-                        'database' => 'test',
-                        'charset' => 'utf8',
-                    ),
-                ),
-            )
-        );
+        $jsonConfig = \CloudConfig::get("platform/proxy_shequ", "test");
+        $config = json_decode($jsonConfig, true);
+//        $config = array(
+//            'test' => array(//test is tes db                                                                                                                                                                               
+//                'master' => array(
+//                    'host' => '10.10.2.73',
+//                    'port' => 3306,
+//                    'user' => 'root',
+//                    'password' => 'woshiguo35',
+//                    'database' => 'test',
+//                    'charset' => 'utf8',
+//                ),
+//                'slave' => array(
+//                    array(
+//                        'host' => '10.10.2.73',
+//                        'port' => 3306,
+//                        'user' => 'root',
+//                        'password' => 'woshiguo35',
+//                        'database' => 'test',
+//                        'charset' => 'utf8',
+//                    ),
+//                ),
+//            )
+//        );
+// no use
+//        $config = array(
+//            'chelun' => array(//test is tes db
+//                'master' => array(
+//                    'host' => '10.10.1.23',
+//                    'port' => 3306,
+//                    'user' => 'chelun',
+//                    'password' => 'chelun',
+//                    'database' => 'chelun',
+//                    'charset' => 'utf8mb4',
+//                ),
+//                'slave' => array(
+//                    array(
+//                        'host' => '10.10.1.23',
+//                        'port' => 3306,
+//                        'user' => 'chelun',
+//                        'password' => 'chelun',
+//                        'database' => 'chelun',
+//                        'charset' => 'utf8mb4',
+//                    ),
+//                ),
+//            ),
+//            'chelun_home' => array(//test is tes db
+//                'master' => array(
+//                    'host' => '10.10.1.23',
+//                    'port' => 3306,
+//                    'user' => 'chelun',
+//                    'password' => 'chelun',
+//                    'database' => 'chelun_home',
+//                    'charset' => 'utf8mb4',
+//                ),
+//                'slave' => array(
+//                    array(
+//                        'host' => '10.10.1.23',
+//                        'port' => 3306,
+//                        'user' => 'chelun',
+//                        'password' => 'chelun',
+//                        'database' => 'chelun_home',
+//                        'charset' => 'utf8mb4',
+//                    ),
+//                ),
+//            )
+//            , 'spider' => array(//test is tes db
+//                'master' => array(
+//                    'host' => '10.10.1.23',
+//                    'port' => 3306,
+//                    'user' => 'chelun',
+//                    'password' => 'chelun',
+//                    'database' => 'spider',
+//                    'charset' => 'utf8mb4',
+//                ),
+//                'slave' => array(
+//                    array(
+//                        'host' => '10.10.1.23',
+//                        'port' => 3306,
+//                        'user' => 'chelun',
+//                        'password' => 'chelun',
+//                        'database' => 'spider',
+//                        'charset' => 'utf8mb4',
+//                    ),
+//                ),
+//            )
+//        );
         $this->targetConfig = $config;
 //        foreach ($config as $dbName => $conf)
 //        {
@@ -226,6 +289,7 @@ class MysqlProxy {
     public function OnWorkerStart($serv, $worker_id) {
         if ($worker_id >= $serv->setting['worker_num']) {
             $serv->tick(3000, array($this, "OnTimer"));
+//            $serv->tick(5000, array($this, "OnPing"));
             swoole_set_process_name("mysql proxy task");
             $result = swoole_get_local_ip();
             $this->localip = $result["eth0"];
