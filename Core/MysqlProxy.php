@@ -38,6 +38,7 @@ class MysqlProxy {
     const CONNECT_SEND_ESTA = 2;
     const COM_QUERY = 3;
     const COM_INIT_DB = 2;
+    const COM_PREPARE = 22;
 
     private $targetConfig = array();
 
@@ -93,28 +94,28 @@ class MysqlProxy {
         $env = get_cfg_var('env.name') ? get_cfg_var('env.name') : 'product';
         $jsonConfig = \CloudConfig::get("platform/proxy_shequ", "test");
         $config = json_decode($jsonConfig, true);
-//        $config = array(
-//            'test' => array(//test is tes db                                                                                                                                                                               
-//                'master' => array(
-//                    'host' => '10.10.2.73',
-//                    'port' => 3306,
-//                    'user' => 'root',
-//                    'password' => 'woshiguo35',
-//                    'database' => 'test',
-//                    'charset' => 'utf8',
-//                ),
-//                'slave' => array(
-//                    array(
-//                        'host' => '10.10.2.73',
-//                        'port' => 3306,
-//                        'user' => 'root',
-//                        'password' => 'woshiguo35',
-//                        'database' => 'test',
-//                        'charset' => 'utf8',
-//                    ),
-//                ),
-//            )
-//        );
+        $config = array(
+            'test' => array(//test is tes db                                                                                                                                                                               
+                'master' => array(
+                    'host' => '10.10.2.73',
+                    'port' => 3306,
+                    'user' => 'root',
+                    'password' => 'woshiguo35',
+                    'database' => 'test',
+                    'charset' => 'utf8',
+                ),
+                'slave' => array(
+                    array(
+                        'host' => '10.10.2.73',
+                        'port' => 3306,
+                        'user' => 'root',
+                        'password' => 'woshiguo35',
+                        'database' => 'test',
+                        'charset' => 'utf8',
+                    ),
+                ),
+            )
+        );
 // no use
 //        $config = array(
 //            'chelun' => array(//test is tes db
@@ -214,6 +215,10 @@ class MysqlProxy {
             $cmd = $ret['cmd'];
             $sql = $ret['sql'];
             if ($cmd !== self::COM_QUERY) {
+                if ($cmd === self::COM_PREPARE) {
+                    $binary = $this->protocal->packErrorData(ERROR_PREPARE, "proxy do not support remote prepare , (PDO example:set PDO::ATTR_EMULATE_PREPARES=true)");
+                    return $this->serv->send($fd, $binary);
+                }
                 $binary = $this->protocal->packOkData(0, 0);
                 return $this->serv->send($fd, $binary);
             }
@@ -228,22 +233,18 @@ class MysqlProxy {
             }
             $dataSource = $config['host'] . ":" . $config['port'] . ":" . $dbName;
             if (!isset($this->pool[$dataSource])) {
-                $pool = new MySQL($config, 20, $this->table, array($this, 'OnResult'));
+                $pool = new MySQL($config, 2, $this->table, array($this, 'OnResult'));
                 $this->pool[$dataSource] = $pool;
             }
             $this->client[$fd]['start'] = microtime(true) * 1000;
             $this->client[$fd]['sql'] = $sql;
             $this->client[$fd]['datasource'] = $dataSource;
             $this->pool[$dataSource]->query($data, $fd);
-//            $this->pool[$dataSource]->query($sql, array($this, 'OnResult'), $fd);
         }
     }
 
     public function OnResult($binaryData, $fd) {
-//        $binaryData = $db->getBuffer();
         $end = microtime(true) * 1000;
-        //$binaryData = $serv->packErrorData(1000,"testerror");
-        //$binaryData = $this->protocal->packResultData($r);
         if (isset($this->client[$fd])) {//有可能已经关闭了
             $this->serv->send($fd, $binaryData);
             $logData = array(

@@ -35,6 +35,11 @@ class MySQL {
     private $pingFlag = false;
     public $datasource = null;
 
+    /*
+     * 客户端fd到$db的映射
+     */
+    private $fd2db = array();
+
     const RESP_OK = 0;
     const RESP_ERROR = -1;
     const RESP_EOF = -2;
@@ -84,7 +89,7 @@ class MySQL {
                 call_user_func($this->onResult, $binaryData, $db->clientFd);
             }
         } else {
-            $ret = $this->protocal->getSql($data);
+            $ret = $this->protocal->getResp($data); //todo change name
             switch ($ret['cmd']) {
                 case self::RESP_EOF:
                     if (( ++$db->eofCnt) == 2) {//第二次的eof才是[row] eof
@@ -96,13 +101,20 @@ class MySQL {
                     }
                     break;
                 case self::RESP_OK:
+                    call_user_func($this->onResult, $data, $db->clientFd);
+                    if ($ret['in_tran'] === 0) {
+                        $this->release($db);
+                    } else {
+                        $db->in_tran = 1;
+                    }
+                    break;
                 case self::RESP_ERROR:
                     call_user_func($this->onResult, $data, $db->clientFd);
                     $this->release($db);
                     break;
 
                 default://result
-                    $db->buffer .= $data;//pack result
+                    $db->buffer .= $data; //pack result
                     break;
             }
         }
@@ -131,13 +143,18 @@ class MySQL {
         $db->clientFd = $fd; //提前设置，为了出错时候可以发送给客户端
         $db->buffer = '';
         $db->eofCnt = 0;
+        $db->in_tran = 0;
         $db->connect($this->config['host'], $this->config['port']);
     }
 
     public function query($data, $fd) {
+        if (isset($this->fd2db[$fd])) {
+            return $this->fd2db[$fd]->send($data);
+        }
         if (count($this->idelPool) > 0) {
             //从空闲队列中取出可用的资源
             $db = array_shift($this->idelPool);
+            $this->fd2db[$fd] = $db;
             $db->clientFd = $fd; //当前连接服务于那个客户端fd
             $db->buffer = '';
             $db->eofCnt = 0;
@@ -146,7 +163,8 @@ class MySQL {
             array_push($this->taskQueue, array('fd' => $fd, 'data' => $data));
             $this->connect($fd);
         } else {
-            echo "out of pool size\n";
+            array_push($this->taskQueue, array('fd' => $fd, 'data' => $data));
+            echo "out of pool size ,check the slow query\n";
         }
     }
 
@@ -169,6 +187,7 @@ class MySQL {
             //从队列取出排队的
             $task = array_shift($this->taskQueue);
             $db->clientFd = $task['fd'];
+            $this->fd2db[$task['fd']] = $db;
             $db->buffer = '';
             $db->eofCnt = 0;
             $db->send($task['data']);
@@ -180,9 +199,11 @@ class MySQL {
      * @param $resource
      */
     public function release($db) {
+        unset($this->fd2db[$db->clientFd]);
         $db->clientFd = 0;
         $db->buffer = '';
         $db->eofCnt = 0;
+        $db->in_tran = 0;
         array_push($this->idelPool, $db);
         $this->doTask();
     }
@@ -209,6 +230,16 @@ class MySQL {
      * @return bool
      */
     function removeTask($fd) {
+        if (isset($this->fd2db[$fd])) {
+            $db = $this->fd2db[$fd];
+            if ($db->in_tran) {//在事务里面直接断开了和proxy的链接，相应的proxy也和mysql断开链接重新连
+                echo "client close when in transaction\n";
+                unset($this->fd2db[$fd]);
+                $this->usedSize--;
+                $this->table->decr(MYSQL_CONN_KEY, $this->datasource);
+                $db->close();
+            }
+        }
         foreach ($this->taskQueue as $k => $arr) {
             if ($arr['fd'] === $fd) {
                 unset($this->taskQueue[$k]);

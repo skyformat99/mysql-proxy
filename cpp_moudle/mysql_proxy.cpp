@@ -45,12 +45,12 @@ void getDbName(Object &_this, Args &args, Variant &retval);
 void sendConnectAuth(Object &_this, Args &args, Variant &retval);
 void getConnResult(Object &_this, Args &args, Variant &retval);
 void getSql(Object &_this, Args &args, Variant &retval);
+void getResp(Object &_this, Args &args, Variant &retval);
 void packOkData(Object &_this, Args &args, Variant &retval);
 void packErrorData(Object &_this, Args &args, Variant &retval);
 void packResultData(Object &_this, Args &args, Variant &retval);
 
-int swModule_init(swModule *module)
-{
+int swModule_init(swModule *module) {
 
     module->name = (char *) "mysql_proxy";
     swModule_register_global_function((char *) "mysql_proxy_get_length", (void *) mysql_proxy_get_length);
@@ -80,6 +80,10 @@ int swModule_init(swModule *module)
      */
     c.addMethod("getConnResult", getConnResult);
 
+    /**
+     * 获取mysql返回信息
+     */
+    c.addMethod("getResp", getResp);
 
     /**
      * 获取sql
@@ -106,22 +110,19 @@ int swModule_init(swModule *module)
     return SW_OK;
 }
 
-static sw_inline void mysql_pack_2length(int length, char *buf)
-{
+static sw_inline void mysql_pack_2length(int length, char *buf) {
     buf[1] = length >> 8;
     buf[0] = length;
 }
 
-static sw_inline void mysql_pack_4length(int length, char *buf)
-{
+static sw_inline void mysql_pack_4length(int length, char *buf) {
     buf[3] = length >> 24;
     buf[2] = length >> 16;
     buf[1] = length >> 8;
     buf[0] = length;
 }
 
-static sw_inline void mysql_pack_8length(uint64_t length, char *buf)
-{
+static sw_inline void mysql_pack_8length(uint64_t length, char *buf) {
     buf[7] = length >> 56;
     buf[6] = length >> 48;
     buf[5] = length >> 40; //?????
@@ -132,8 +133,7 @@ static sw_inline void mysql_pack_8length(uint64_t length, char *buf)
     buf[0] = length;
 }
 
-static sw_inline void swString_check_size(swString *str, int s_len)
-{
+static sw_inline void swString_check_size(swString *str, int s_len) {
     int new_size = str->length + s_len;
     if (new_size > str->size)
     {
@@ -144,15 +144,13 @@ static sw_inline void swString_check_size(swString *str, int s_len)
     }
 }
 
-static sw_inline void skip_one_type(swString * buf)
-{
+static sw_inline void skip_one_type(swString * buf) {
     swString_check_size(buf, 1);
     buf->str[buf->length] = 0;
     buf->length++;
 }
 
-static sw_inline void encode_mysql_integer(swString *buffer, uint64_t num)
-{
+static sw_inline void encode_mysql_integer(swString *buffer, uint64_t num) {
     if (num == 0)
     {
         buffer->str[buffer->length] = 251;
@@ -182,8 +180,7 @@ static sw_inline void encode_mysql_integer(swString *buffer, uint64_t num)
     }
 }
 
-static sw_inline void pack_mysql_eof(swString *buf, zend_uchar *pack_num)
-{
+static sw_inline void pack_mysql_eof(swString *buf, zend_uchar *pack_num) {
     //EOF, length (3byte) + id(1byte) + 0xFE + warning(2byte) + status(2byte)
     // swString_check_size(sql_data_buffer, 5);
     mysql_pack_length(5, buf->str + buf->length);
@@ -202,8 +199,7 @@ static sw_inline void pack_mysql_eof(swString *buf, zend_uchar *pack_num)
     buf->length += 2;
 }
 
-void sendConnectOk(Object &_this, Args &args, Variant &retval)
-{
+void sendConnectOk(Object &_this, Args &args, Variant &retval) {
     char responseOk[11] = {0};
     responseOk[3] = 2; //number 2
     mysql_pack_length(7, responseOk); //length 不包含包头的长度
@@ -223,8 +219,7 @@ void sendConnectOk(Object &_this, Args &args, Variant &retval)
     }
 }
 
-void getDbName(Object &_this, Args &args, Variant &retval)
-{
+void getDbName(Object &_this, Args &args, Variant &retval) {
     char *data = args[0].toCString();
     char username[200] = {0};
     char database[200] = {0};
@@ -233,7 +228,7 @@ void getDbName(Object &_this, Args &args, Variant &retval)
     strcpy(pwd, data + 36 + strlen(username) + 1);
     if (strlen(pwd) == 0)
     {
-         strcpy(database, data + 36 + strlen(username) + strlen(pwd) + 2);
+        strcpy(database, data + 36 + strlen(username) + strlen(pwd) + 2);
     } else
     {
         strcpy(database, data + 36 + strlen(username) + 22);
@@ -242,8 +237,7 @@ void getDbName(Object &_this, Args &args, Variant &retval)
     //    SW_RETURN_STRING(database, 1);
 }
 
-void sendConnectAuth(Object &_this, Args &args, Variant &retval)
-{
+void sendConnectAuth(Object &_this, Args &args, Variant &retval) {
     /*
      *1              [0a] protocol version
     string[NUL]    server version
@@ -269,8 +263,7 @@ void sendConnectAuth(Object &_this, Args &args, Variant &retval)
      */
 #pragma pack (1)
 
-    typedef struct
-    {
+    typedef struct {
         char packet_length[3];
         uint8_t packet_number; //header
 
@@ -314,8 +307,7 @@ void sendConnectAuth(Object &_this, Args &args, Variant &retval)
 
 }
 
-void getConnResult(Object &_this, Args &args, Variant &retval)
-{
+void getConnResult(Object &_this, Args &args, Variant &retval) {
     string str = args[0].toString();
 
     const char *buf = str.data();
@@ -338,8 +330,7 @@ void getConnResult(Object &_this, Args &args, Variant &retval)
     }
 }
 
-void getSql(Object &_this, Args &args, Variant &retval)
-{
+void getSql(Object &_this, Args &args, Variant &retval) {
     string str = args[0].toString();
 
     const char *buf = str.data();
@@ -357,11 +348,63 @@ void getSql(Object &_this, Args &args, Variant &retval)
     // return Variant(buf + 5, packet_length - 1);
 }
 
+static sw_inline void skip_one_length(char **buf) {
+    zend_uchar first = (zend_uchar) **buf;
+    if (0 <= first && first <= 251)
+    {
+        (*buf) += 1;
+    } else if (first == 252)
+    {
+        (*buf) += 3;
+    } else if (first == 253)
+    {
+        (*buf) += 4;
+    } else
+    {
+        (*buf) += 9;
+    }
+}
+
+static unsigned short get_server_status(char * buf) {
+    skip_one_length(&buf);
+    skip_one_length(&buf);
+    return *((unsigned short*) buf);
+}
+
+void getResp(Object &_this, Args &args, Variant &retval) {
+    string str = args[0].toString();
+
+    char *buf = (char *) str.data();
+    //command
+    int command = buf[4];
+    if (command == 0)
+    {//ok
+        Array map(retval);
+        map.set("cmd", (long) command);
+        unsigned short all_status = get_server_status(buf + 5);
+        if (all_status & 1)
+        {
+            map.set("in_tran", 1);
+        } else
+        {
+            map.set("in_tran", 0);
+        }
+    } else if (command == -1)
+    {//error
+        Array map(retval);
+        map.set("cmd", (long) command);
+        //        map.set("sql", buf + 5);
+    } else
+    {
+        Array map(retval);
+        map.set("cmd", (long) command);
+    }
+}
+
 #define UTF8_MB4 "utf8mb4"
 #define UTF8_MB3 "utf8"
 
-typedef struct _mysql_charset
-{
+typedef struct _mysql_charset {
     unsigned int nr;
     const char *name;
     const char *collation;
@@ -571,8 +614,7 @@ static const mysql_charset swoole_mysql_charsets[] = {
     { 0, NULL, NULL},
 };
 
-static int mysql_get_charset(const char *name)
-{
+static int mysql_get_charset(const char *name) {
     const mysql_charset *c = swoole_mysql_charsets;
     while (c[0].nr != 0)
     {
@@ -585,8 +627,7 @@ static int mysql_get_charset(const char *name)
     return -1;
 }
 
-void responseAuth(Object &_this, Args &args, Variant &retval)
-{
+void responseAuth(Object &_this, Args &args, Variant &retval) {
     string recv_str = args[0].toString();
     string db_str = args[1].toString();
     string user_str = args[2].toString();
@@ -771,8 +812,7 @@ void responseAuth(Object &_this, Args &args, Variant &retval)
     retval = tmp_str;
 }
 
-void packOkData(Object &_this, Args &args, Variant &retval)
-{
+void packOkData(Object &_this, Args &args, Variant &retval) {
     Variant effect_rows = args[0];
     Variant insert_id = args[1];
 
@@ -814,8 +854,7 @@ void packOkData(Object &_this, Args &args, Variant &retval)
 
 }
 
-void packErrorData(Object &_this, Args &args, Variant &retval)
-{
+void packErrorData(Object &_this, Args &args, Variant &retval) {
 
     Variant error_code = args[0];
     Variant error_msg = args[1];
@@ -860,8 +899,7 @@ void packErrorData(Object &_this, Args &args, Variant &retval)
 
 }
 
-static sw_inline void encode_field_num(swString *buffer, uint64_t num)
-{
+static sw_inline void encode_field_num(swString *buffer, uint64_t num) {
     if (num == 0)
     {
         buffer->str[buffer->length - 1] = 251;
@@ -889,8 +927,7 @@ static sw_inline void encode_field_num(swString *buffer, uint64_t num)
     }
 }
 
-void packResultData(Object &_this, Args &args, Variant &retval)
-{
+void packResultData(Object &_this, Args &args, Variant &retval) {
     Variant vars = args[0];
     Array arrays(vars);
     zend_uchar pack_num = 0; //0--255
@@ -1050,8 +1087,7 @@ void packResultData(Object &_this, Args &args, Variant &retval)
 
 }
 
-int mysql_proxy_get_length(swProtocol *protocol, swConnection *conn, char *data, uint32_t length)
-{
+int mysql_proxy_get_length(swProtocol *protocol, swConnection *conn, char *data, uint32_t length) {
     if (length < 4)
     {
 
