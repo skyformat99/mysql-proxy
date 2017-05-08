@@ -60,11 +60,13 @@ class MySQL {
         $this->protocal = new \MysqlProtocol();
     }
 
-    public function onClose($db) {
+    public function onClose($db) {//mysql主动断开了和proxy的链接
         echo "close with mysql\n";
-        $this->remove($db);
-        $binaryData = $this->protocal->packErrorData(ERROR_CONN, "close with mysql");
-        return call_user_func($this->onResult, $binaryData, $db->clientFd);
+        $this->remove($db); //如果此链接在idel里面就剔除
+        if ($db->clientFd > 0) {//如果此链接已经分配给了客户端,则向客户端发送错误信息(重启mysql才会发生这种情况，session timeout的时候除非分配连接和gone away同时发生)
+            $binaryData = $this->protocal->packErrorData(ERROR_CONN, "close with mysql");
+            return call_user_func($this->onResult, $binaryData, $db->clientFd);
+        }
     }
 
     public function onReceive($db, $data = "") {
