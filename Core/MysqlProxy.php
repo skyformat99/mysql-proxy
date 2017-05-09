@@ -50,10 +50,12 @@ class MysqlProxy {
             $dataSource = $conf['host'] . ":" . $conf['port'] . ":" . $dbname;
             $this->table->column($dataSource, \swoole_table::TYPE_INT, 4);
             $arr[$dataSource] = 0;
-            foreach ($config['slave'] as $sconfig) {
-                $dataSource = $sconfig['host'] . ":" . $sconfig['port'] . ":" . $dbname;
-                $this->table->column($dataSource, \swoole_table::TYPE_INT, 4);
-                $arr[$dataSource] = 0;
+            if (isset($config['slave'])) {
+                foreach ($config['slave'] as $sconfig) {
+                    $dataSource = $sconfig['host'] . ":" . $sconfig['port'] . ":" . $dbname;
+                    $this->table->column($dataSource, \swoole_table::TYPE_INT, 4);
+                    $arr[$dataSource] = 0;
+                }
             }
         }
         $this->table->column("client_count", \swoole_table::TYPE_INT, 4);
