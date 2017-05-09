@@ -257,7 +257,7 @@ class MysqlProxy {
             }
             $dataSource = $config['host'] . ":" . $config['port'] . ":" . $dbName;
             if (!isset($this->pool[$dataSource])) {
-                $pool = new MySQL($config, 2, $this->table, array($this, 'OnResult'));
+                $pool = new MySQL($config, 20, $this->table, array($this, 'OnResult'));
                 $this->pool[$dataSource] = $pool;
             }
             $this->client[$fd]['start'] = microtime(true) * 1000;
@@ -317,7 +317,8 @@ class MysqlProxy {
 //            $serv->tick(5000, array($this, "OnPing"));
             swoole_set_process_name("mysql proxy task");
             $result = swoole_get_local_ip();
-            $this->localip = $result["eth0"];
+            $first_ip = array_pop($result);
+            $this->localip = $first_ip;
         } else {
             swoole_set_process_name("mysql proxy worker");
         }

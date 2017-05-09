@@ -290,8 +290,8 @@ void sendConnectAuth(Object &_this, Args &args, Variant &retval) {
     //length
     mysql_pack_length(packet_length, response.packet_length);
     response.protocol_version = 10;
-//    response.capability_flags = 0xf7ff;//just not ssl
-//    response.status_flags = 0x0002;//auto commit
+    response.capability_flags = 0xf7ff;//just not ssl
+    response.status_flags = 0x0002;//auto commit
     memcpy(response.proxy_name, swoole_mysql_proxy_name, sizeof (swoole_mysql_proxy_name));
     response.connection_id = fd;
     response.character_set = 8;
