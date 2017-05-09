@@ -65,12 +65,12 @@ class MysqlProxy {
 
         $this->serv = new \swoole_server('0.0.0.0', '9536', SWOOLE_PROCESS, SWOOLE_SOCK_TCP);
         $this->serv->set([
-            'worker_num' => 1,
+            'worker_num' => 4,
             'task_worker_num' => 2,
             'dispatch_mode' => 2,
             'open_length_check' => 1,
             'log_file' => '/tmp/sqlproxy.log',
-            'daemonize' => 0,
+            'daemonize' => 1,
             'package_length_func' => 'mysql_proxy_get_length'
                 ]
         );
