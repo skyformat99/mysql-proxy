@@ -91,31 +91,59 @@ class MysqlProxy {
     }
 
     public function getConfig() {
-        $env = get_cfg_var('env.name') ? get_cfg_var('env.name') : 'product';
-        $jsonConfig = \CloudConfig::get("platform/proxy_shequ", "test");
-        $config = json_decode($jsonConfig, true);
+//        $env = get_cfg_var('env.name') ? get_cfg_var('env.name') : 'product';
+//        $jsonConfig = \CloudConfig::get("platform/proxy_shequ", "test");
+//        $config = json_decode($jsonConfig, true);
         $config = array(
-            'test' => array(//test is tes db                                                                                                                                                                               
+            'app_chelun_topic' => array(
                 'master' => array(
-                    'host' => '10.10.2.73',
+                    'host' => '192.168.1.254',
+                    'port' => 10120,
+                    'user' => 'chelun_topic',
+                    'password' => 'F9lUez9A',
+                    'database' => 'app_chelun_topic',
+                    'charset' => 'utf8mb4',
+                )
+            ), 'infra_chelun' => array(
+                'master' => array(
+                    'host' => '192.168.1.221',
+                    'port' => 10121,
+                    'user' => 'ro_infra',
+                    'password' => 'Ui7$F4D#F5Sf',
+                    'database' => 'infra_chelun',
+                    'charset' => 'utf8mb4',
+                )),
+            'app_chelun' => array(
+                'master' => array(
+                    'host' => '192.168.1.41',
                     'port' => 3306,
-                    'user' => 'root',
-                    'password' => 'woshiguo35',
-                    'database' => 'test',
-                    'charset' => 'utf8',
-                ),
-                'slave' => array(
-                    array(
-                        'host' => '10.10.2.73',
-                        'port' => 3306,
-                        'user' => 'root',
-                        'password' => 'woshiguo35',
-                        'database' => 'test',
-                        'charset' => 'utf8',
-                    ),
-                ),
-            )
-        );
+                    'user' => 'chelun_user',
+                    'password' => 'wK22KQucCiQe',
+                    'database' => 'app_chelun',
+                    'charset' => 'utf8mb4',
+        )));
+//        $config = array(
+//            'test' => array(//test is tes db                                                                                                                                                                               
+//                'master' => array(
+//                    'host' => '10.10.2.73',
+//                    'port' => 3306,
+//                    'user' => 'root',
+//                    'password' => 'woshiguo35',
+//                    'database' => 'test',
+//                    'charset' => 'utf8',
+//                ),
+//                'slave' => array(
+//                    array(
+//                        'host' => '10.10.2.73',
+//                        'port' => 3306,
+//                        'user' => 'root',
+//                        'password' => 'woshiguo35',
+//                        'database' => 'test',
+//                        'charset' => 'utf8',
+//                    ),
+//                ),
+//            )
+//        );
 // no use
 //        $config = array(
 //            'chelun' => array(//test is tes db
@@ -180,16 +208,6 @@ class MysqlProxy {
 //            )
 //        );
         $this->targetConfig = $config;
-//        foreach ($config as $dbName => $conf)
-//        {
-//            $entity = $conf['master'];
-//            $dataSource = $entity['host'] . ":" . $entity['port'] . ":" . $dbName;
-//            if (!isset($this->pool[$dataSource]))
-//            {
-//                $pool = new MySQL($entity, 20, $this->table);
-//                $this->pool[$dataSource] = $pool;
-//            }
-//        }
     }
 
     public function start() {
@@ -225,11 +243,15 @@ class MysqlProxy {
             $dbName = $this->client[$fd]['dbName'];
             $pre = substr($sql, 0, 5);
             if (stristr($pre, "select") || stristr($pre, "show")) {
-                $config = $this->targetConfig[$dbName]['master'];
+                if (isset($this->targetConfig[$dbName]['slave'])) {
+                    $count = count($this->targetConfig[$dbName]['slave']);
+                    $index = random_int(0, $count - 1); //随机均衡
+                    $config = $this->targetConfig[$dbName]['slave'][$index];
+                } else {//未配置从 直接走主
+                    $config = $this->targetConfig[$dbName]['master'];
+                }
             } else {
-                $count = count($this->targetConfig[$dbName]['slave']);
-                $index = random_int(0, $count - 1); //随机均衡
-                $config = $this->targetConfig[$dbName]['slave'][$index];
+                $config = $this->targetConfig[$dbName]['master'];
             }
             $dataSource = $config['host'] . ":" . $config['port'] . ":" . $dbName;
             if (!isset($this->pool[$dataSource])) {
