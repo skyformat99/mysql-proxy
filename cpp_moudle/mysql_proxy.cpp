@@ -723,7 +723,7 @@ void responseAuth(Object &_this, Args &args, Variant &retval) {
     int value;
     tmp = connector.buf + 4;
     //capability flags, CLIENT_PROTOCOL_41 always set
-    value = SW_MYSQL_CLIENT_PROTOCOL_41 | SW_MYSQL_CLIENT_SECURE_CONNECTION | SW_MYSQL_CLIENT_CONNECT_WITH_DB | SW_MYSQL_CLIENT_PLUGIN_AUTH;
+    value = SW_MYSQL_CLIENT_PROTOCOL_41  | SW_MYSQL_CLIENT_CONNECT_WITH_DB | SW_MYSQL_CLIENT_PLUGIN_AUTH;
     memcpy(tmp, &value, sizeof (value));
     tmp += 4;
     //max-packet size
