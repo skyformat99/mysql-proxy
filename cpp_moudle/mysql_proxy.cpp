@@ -270,13 +270,11 @@ void sendConnectAuth(Object &_this, Args &args, Variant &retval) {
         uint8_t protocol_version;
         char proxy_name[sizeof (swoole_mysql_proxy_name)];
         int connection_id;
-        char part1[8];
-        uint8_t filler;
+        uint64_t random;
+        uint8_t reserved1;
         uint16_t capability_flags;
         char character_set;
-        uint16_t status_flags;
-        uint16_t capability_flags2;
-        uint8_t filler2;
+        int8_t random_len;
         char reserved2[10];
         char random2[13];
     } swoole_mysql_handshake_response;
@@ -290,8 +288,6 @@ void sendConnectAuth(Object &_this, Args &args, Variant &retval) {
     //length
     mysql_pack_length(packet_length, response.packet_length);
     response.protocol_version = 10;
-    response.capability_flags = 0xf7ff;
-    response.status_flags = 0x0002;
     memcpy(response.proxy_name, swoole_mysql_proxy_name, sizeof (swoole_mysql_proxy_name));
     response.connection_id = fd;
     response.character_set = 8;
@@ -691,8 +687,6 @@ void responseAuth(Object &_this, Args &args, Variant &retval) {
     //2              capability flags (lower 2 bytes)
     memcpy(((char *) (&request.capability_flags)), tmp, 2);
     tmp += 2;
-    
-//    printf("auth 1 %u,%u\n",SW_MYSQL_CLIENT_SECURE_CONNECTION,SW_MYSQL_CLIENT_PLUGIN_AUTH);
 
     if (tmp - tmp < len)
     {
