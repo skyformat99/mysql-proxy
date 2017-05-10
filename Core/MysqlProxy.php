@@ -241,7 +241,7 @@ class MysqlProxy {
                     return $this->serv->send($fd, $binary);
                 }
                 if ($cmd === self::COM_QUIT) {//直接关闭和client链接
-                    return $serv->close();
+                    return $serv->close($fd, true);
                 }
                 $binary = $this->protocal->packOkData(0, 0);
                 return $this->serv->send($fd, $binary);
