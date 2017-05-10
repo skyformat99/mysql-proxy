@@ -38,6 +38,7 @@ class MysqlProxy {
     const CONNECT_SEND_ESTA = 2;
     const COM_QUERY = 3;
     const COM_INIT_DB = 2;
+    const COM_QUIT = 1;
     const COM_PREPARE = 22;
 
     private $targetConfig = array();
@@ -239,6 +240,9 @@ class MysqlProxy {
                     $binary = $this->protocal->packErrorData(ERROR_PREPARE, "proxy do not support remote prepare , (PDO example:set PDO::ATTR_EMULATE_PREPARES=true)");
                     return $this->serv->send($fd, $binary);
                 }
+                if ($cmd === self::COM_QUIT) {//直接关闭和client链接
+                    return $serv->close();
+                }
                 $binary = $this->protocal->packOkData(0, 0);
                 return $this->serv->send($fd, $binary);
             }
@@ -284,6 +288,7 @@ class MysqlProxy {
     }
 
     public function OnConnect($serv, $fd) {
+        echo "client connect $fd\n";
         $this->client[$fd]['status'] = self::CONNECT_START;
         $this->protocal->sendConnectAuth($serv, $fd);
         $this->client[$fd]['status'] = self::CONNECT_SEND_AUTH;
@@ -297,6 +302,7 @@ class MysqlProxy {
     }
 
     public function OnClose($serv, $fd, $from_id) {
+        echo "client close $fd\n";
         //todo del from client
         $this->table->decr(MYSQL_CONN_KEY, "client_count");
         //remove from task queue,if possible

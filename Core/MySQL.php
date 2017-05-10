@@ -227,7 +227,7 @@ class MySQL {
     }
 
     /**
-     * 移除排队
+     * 移除排队和解除事务
      * @param $resource
      * @return bool
      */
@@ -241,6 +241,7 @@ class MySQL {
                 $this->table->decr(MYSQL_CONN_KEY, $this->datasource);
                 $db->close();
             }
+            unset($this->fd2db[$fd]);
         }
         foreach ($this->taskQueue as $k => $arr) {
             if ($arr['fd'] === $fd) {
