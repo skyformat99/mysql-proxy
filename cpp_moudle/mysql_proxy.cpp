@@ -16,99 +16,46 @@
 
 #include <string>
 #include <iostream>
-
-
-#include "PHP_API.hpp"
+#include "phpx.h"
 //#include "sha1.h"  
 
-
-
 #define swoole_mysql_proxy_name  "swoole"
+#define PHPX_PURE_METHOD(c, m) void m(Object &_this, Args &args, Variant &retval)
+
+#if defined(__GNUC__)
+#if __GNUC__ >= 3
+#define sw_inline inline __attribute__((always_inline))
+#else
+#define sw_inline inline
+#endif
+#elif defined(_MSC_VER)
+#define sw_inline __forceinline
+#else
+#define sw_inline inline
+#endif
 
 using namespace std;
-using namespace PHP;
+using namespace php;
 
-extern "C"
-{
+extern "C" {
 #include "php_swoole.h"
-#include "module.h"
 #include "ext/standard/php_http.h"
 #include "swoole_mysql.h"
-    int swModule_init(swModule *);
     void responseAuth(Object &_this, Args &args, Variant &retval);
 }
 
-int mysql_proxy_get_length(swProtocol *protocol, swConnection *conn, char *data, uint32_t length);
 
-void sendConnectOk(Object &_this, Args &args, Variant &retval);
-void getDbName(Object &_this, Args &args, Variant &retval);
-void sendConnectAuth(Object &_this, Args &args, Variant &retval);
-void getConnResult(Object &_this, Args &args, Variant &retval);
-void getSql(Object &_this, Args &args, Variant &retval);
-void getResp(Object &_this, Args &args, Variant &retval);
-void packOkData(Object &_this, Args &args, Variant &retval);
-void packErrorData(Object &_this, Args &args, Variant &retval);
-void packResultData(Object &_this, Args &args, Variant &retval);
+//void sendConnectOk(Object &_this, Args &args, Variant &retval);
+//void getDbName(Object &_this, Args &args, Variant &retval);
+//void sendConnectAuth(Object &_this, Args &args, Variant &retval);
+//void getConnResult(Object &_this, Args &args, Variant &retval);
+//void getSql(Object &_this, Args &args, Variant &retval);
+//void getResp(Object &_this, Args &args, Variant &retval);
+//void packOkData(Object &_this, Args &args, Variant &retval);
+//void packErrorData(Object &_this, Args &args, Variant &retval);
+//void packResultData(Object &_this, Args &args, Variant &retval);
 
-int swModule_init(swModule *module) {
-
-    module->name = (char *) "mysql_proxy";
-    swModule_register_global_function((char *) "mysql_proxy_get_length", (void *) mysql_proxy_get_length);
-
-    Class c("MysqlProtocol");
-    /**
-     * 发送链接ok包
-     */
-    c.addMethod("sendConnectOk", sendConnectOk);
-    /**
-     * 获取dbname
-     */
-    c.addMethod("getDbName", getDbName);
-    /**
-     * 发送auth包
-     */
-    c.addMethod("sendConnectAuth", sendConnectAuth);
-
-    /**
-     * 相应mysql server的Auth的包
-     */
-    c.addMethod("responseAuth", responseAuth);
-
-
-    /**
-     * 获取链接的最后一个包
-     */
-    c.addMethod("getConnResult", getConnResult);
-
-    /**
-     * 获取mysql返回信息
-     */
-    c.addMethod("getResp", getResp);
-
-    /**
-     * 获取sql
-     */
-    c.addMethod("getSql", getSql);
-    /**
-     * 发送ok包 insert update
-     */
-    c.addMethod("packOkData", packOkData);
-    /**
-     * 发送error包
-     */
-    c.addMethod("packErrorData", packErrorData);
-    /**
-     * 发送数组  selelct
-     */
-    c.addMethod("packResultData", packResultData);
-
-    /**
-     * 激活类
-     */
-    c.activate();
-
-    return SW_OK;
-}
+//int mysql_proxy_get_length(swProtocol *protocol, swConnection *conn, char *data, uint32_t length);
 
 static sw_inline void mysql_pack_2length(int length, char *buf) {
     buf[1] = length >> 8;
@@ -135,10 +82,8 @@ static sw_inline void mysql_pack_8length(uint64_t length, char *buf) {
 
 static sw_inline void swString_check_size(swString *str, int s_len) {
     int new_size = str->length + s_len;
-    if (new_size > str->size)
-    {
-        if (swString_extend(str, swoole_size_align(new_size * 2, sysconf(_SC_PAGESIZE))) < 0)
-        {
+    if (new_size > str->size) {
+        if (swString_extend(str, swoole_size_align(new_size * 2, sysconf(_SC_PAGESIZE))) < 0) {
             swoole_error_log(SW_LOG_ERROR, SW_ERROR_MALLOC_FAIL, "malloc[0] failed.");
         }
     }
@@ -151,12 +96,10 @@ static sw_inline void skip_one_type(swString * buf) {
 }
 
 static sw_inline void encode_mysql_integer(swString *buffer, uint64_t num) {
-    if (num == 0)
-    {
+    if (num == 0) {
         buffer->str[buffer->length] = 251;
         buffer->length++;
-    } else if (1 <= num && num <= 250)
-    {//column num in result type packet
+    } else if (1 <= num && num <= 250) {//column num in result type packet
         buffer->str[buffer->length] = num;
         buffer->length++;
     } else if (num <= 0xff)//2byte
@@ -171,8 +114,7 @@ static sw_inline void encode_mysql_integer(swString *buffer, uint64_t num) {
         buffer->length++;
         mysql_pack_length((int) num, buffer->str + buffer->length);
         buffer->length += 3;
-    } else
-    {
+    } else {
         buffer->str[buffer->length] = 254;
         buffer->length++;
         mysql_pack_8length(num, buffer->str + buffer->length);
@@ -199,7 +141,8 @@ static sw_inline void pack_mysql_eof(swString *buf, zend_uchar *pack_num) {
     buf->length += 2;
 }
 
-void sendConnectOk(Object &_this, Args &args, Variant &retval) {
+PHPX_PURE_METHOD(MysqlProtocol, sendConnectOk) {
+
     char responseOk[11] = {0};
     responseOk[3] = 2; //number 2
     mysql_pack_length(7, responseOk); //length 不包含包头的长度
@@ -208,36 +151,34 @@ void sendConnectOk(Object &_this, Args &args, Variant &retval) {
     int fd = args[1].toInt();
     swServer *serv = (swServer*) swoole_get_object(obj);
     int flag = serv->send(serv, fd, &responseOk, sizeof (responseOk));
-    if (flag)
-    {
+    if (flag) {
         retval = 1;
         //        return Variant(1);
-    } else
-    {
+    } else {
         retval = 0;
         //        return Variant(0);
     }
 }
 
-void getDbName(Object &_this, Args &args, Variant &retval) {
+PHPX_PURE_METHOD(MysqlProtocol, getDbName) {
+    //void getDbName(Object &_this, Args &args, Variant &retval) {
     char *data = args[0].toCString();
     char username[200] = {0};
     char database[200] = {0};
     char pwd[200] = {0};
     strcpy(username, data + 36);
     strcpy(pwd, data + 36 + strlen(username) + 1);
-    if (strlen(pwd) == 0)
-    {
+    if (strlen(pwd) == 0) {
         strcpy(database, data + 36 + strlen(username) + strlen(pwd) + 2);
-    } else
-    {
+    } else {
         strcpy(database, data + 36 + strlen(username) + 22);
     }
     retval = database;
     //    SW_RETURN_STRING(database, 1);
 }
 
-void sendConnectAuth(Object &_this, Args &args, Variant &retval) {
+PHPX_PURE_METHOD(MysqlProtocol, sendConnectAuth) {
+    //void sendConnectAuth(Object &_this, Args &args, Variant &retval) {
     /*
      *1              [0a] protocol version
     string[NUL]    server version
@@ -290,8 +231,8 @@ void sendConnectAuth(Object &_this, Args &args, Variant &retval) {
     //length
     mysql_pack_length(packet_length, response.packet_length);
     response.protocol_version = 10;
-    response.capability_flags = 0xf7ff;//just not ssl
-    response.status_flags = 0x0002;//auto commit
+    response.capability_flags = 0xf7ff; //just not ssl
+    response.status_flags = 0x0002; //auto commit
     memcpy(response.proxy_name, swoole_mysql_proxy_name, sizeof (swoole_mysql_proxy_name));
     response.connection_id = fd;
     response.character_set = 8;
@@ -299,11 +240,9 @@ void sendConnectAuth(Object &_this, Args &args, Variant &retval) {
     zval *obj = args[0].ptr();
     swServer *serv = (swServer*) swoole_get_object(obj);
     int flag = serv->send(serv, fd, &response, sizeof (response));
-    if (flag)
-    {
+    if (flag) {
         retval = 1;
-    } else
-    {
+    } else {
         retval = 0;
     }
 
@@ -311,7 +250,8 @@ void sendConnectAuth(Object &_this, Args &args, Variant &retval) {
 
 }
 
-void getConnResult(Object &_this, Args &args, Variant &retval) {
+PHPX_PURE_METHOD(MysqlProtocol, getConnResult) {
+    //void getConnResult(Object &_this, Args &args, Variant &retval) {
     string str = args[0].toString();
 
     const char *buf = str.data();
@@ -324,17 +264,16 @@ void getConnResult(Object &_this, Args &args, Variant &retval) {
     tmp += 1;
 
     //ERROR Packet
-    if (opcode == 0xff)
-    {
+    if (opcode == 0xff) {
         string tmp_str = string(tmp + 2, packet_length - 3);
         retval = tmp_str;
-    } else
-    {
+    } else {
         retval = 1;
     }
 }
 
-void getSql(Object &_this, Args &args, Variant &retval) {
+PHPX_PURE_METHOD(MysqlProtocol, getSql) {
+    //void getSql(Object &_this, Args &args, Variant &retval) {
     string str = args[0].toString();
 
     const char *buf = str.data();
@@ -354,17 +293,13 @@ void getSql(Object &_this, Args &args, Variant &retval) {
 
 static sw_inline void skip_one_length(char **buf) {
     zend_uchar first = (zend_uchar) **buf;
-    if (0 <= first && first <= 251)
-    {
+    if (0 <= first && first <= 251) {
         (*buf) += 1;
-    } else if (first == 252)
-    {
+    } else if (first == 252) {
         (*buf) += 3;
-    } else if (first == 253)
-    {
+    } else if (first == 253) {
         (*buf) += 4;
-    } else
-    {
+    } else {
         (*buf) += 9;
     }
 }
@@ -375,31 +310,27 @@ static unsigned short get_server_status(char * buf) {
     return *((unsigned short*) buf);
 }
 
-void getResp(Object &_this, Args &args, Variant &retval) {
+PHPX_PURE_METHOD(MysqlProtocol, getResp) {
+    //void getResp(Objet s&_this, Args &args, Variant &retval) {
     string str = args[0].toString();
 
     char *buf = (char *) str.data();
     //command
     int command = buf[4];
-    if (command == 0)
-    {//ok
+    if (command == 0) {//ok
         Array map(retval);
         map.set("cmd", (long) command);
         unsigned short all_status = get_server_status(buf + 5);
-        if (all_status & 1)
-        {
+        if (all_status & 1) {
             map.set("in_tran", 1);
-        } else
-        {
+        } else {
             map.set("in_tran", 0);
         }
-    } else if (command == -1)
-    {//error
+    } else if (command == -1) {//error
         Array map(retval);
         map.set("cmd", (long) command);
         //        map.set("sql", buf + 5);
-    } else
-    {
+    } else {
         Array map(retval);
         map.set("cmd", (long) command);
     }
@@ -620,10 +551,8 @@ static const mysql_charset swoole_mysql_charsets[] = {
 
 static int mysql_get_charset(const char *name) {
     const mysql_charset *c = swoole_mysql_charsets;
-    while (c[0].nr != 0)
-    {
-        if (!strcasecmp(c->name, name))
-        {
+    while (c[0].nr != 0) {
+        if (!strcasecmp(c->name, name)) {
             return c->nr;
         }
         ++c;
@@ -631,7 +560,8 @@ static int mysql_get_charset(const char *name) {
     return -1;
 }
 
-void responseAuth(Object &_this, Args &args, Variant &retval) {
+PHPX_PURE_METHOD(MysqlProtocol, responseAuth) {
+    //void responseAuth(Object &_this, Args &args, Variant &retval) {
     string recv_str = args[0].toString();
     string db_str = args[1].toString();
     string user_str = args[2].toString();
@@ -653,8 +583,7 @@ void responseAuth(Object &_this, Args &args, Variant &retval) {
 
     request.packet_length = mysql_uint3korr(tmp);
     //continue to wait for data
-    if (len < request.packet_length + 4)
-    {//todo
+    if (len < request.packet_length + 4) {//todo
         return;
     }
 
@@ -665,8 +594,7 @@ void responseAuth(Object &_this, Args &args, Variant &retval) {
     tmp += 1;
 
     //ERROR Packet
-    if (request.protocol_version == 0xff)
-    {//todo
+    if (request.protocol_version == 0xff) {//todo
         //        connector->error_code = *(uint16_t *) tmp;
         //        connector->error_msg = tmp + 2;
         //        connector->error_length = request.packet_length - 3;
@@ -691,11 +619,10 @@ void responseAuth(Object &_this, Args &args, Variant &retval) {
     //2              capability flags (lower 2 bytes)
     memcpy(((char *) (&request.capability_flags)), tmp, 2);
     tmp += 2;
-    
-//    printf("auth 1 %u,%u\n",SW_MYSQL_CLIENT_SECURE_CONNECTION,SW_MYSQL_CLIENT_PLUGIN_AUTH);
 
-    if (tmp - tmp < len)
-    {
+    //    printf("auth 1 %u,%u\n",SW_MYSQL_CLIENT_SECURE_CONNECTION,SW_MYSQL_CLIENT_PLUGIN_AUTH);
+
+    if (tmp - tmp < len) {
         //1              character set
         request.character_set = *tmp;
         tmp += 1;
@@ -712,15 +639,13 @@ void responseAuth(Object &_this, Args &args, Variant &retval) {
         memcpy(&request.reserved, tmp, sizeof (request.reserved));
         tmp += sizeof (request.reserved);
 
-        if (request.capability_flags & SW_MYSQL_CLIENT_SECURE_CONNECTION)
-        {
+        if (request.capability_flags & SW_MYSQL_CLIENT_SECURE_CONNECTION) {
             int len = MAX(13, request.l_auth_plugin_data - 8);
             memcpy(request.auth_plugin_data + 8, tmp, len);
             tmp += len;
         }
 
-        if (request.capability_flags & SW_MYSQL_CLIENT_PLUGIN_AUTH)
-        {
+        if (request.capability_flags & SW_MYSQL_CLIENT_PLUGIN_AUTH) {
             request.auth_plugin_name = tmp;
             request.l_auth_plugin_name = MIN(strlen(tmp), len - (tmp - buf));
         }
@@ -738,8 +663,7 @@ void responseAuth(Object &_this, Args &args, Variant &retval) {
     tmp += 4;
 
     connector.character_set = mysql_get_charset(charset_str.data());
-    if (connector.character_set < 0)
-    {
+    if (connector.character_set < 0) {
         Array map(retval);
         map.set("error_msg", "unkown charset");
         map.set("error_code", 10000);
@@ -747,8 +671,7 @@ void responseAuth(Object &_this, Args &args, Variant &retval) {
     }
 
     //use the server character_set when the character_set is not set.
-    if (connector.character_set == 0)
-    {
+    if (connector.character_set == 0) {
         connector.character_set = request.character_set;
     }
     //character set
@@ -763,8 +686,7 @@ void responseAuth(Object &_this, Args &args, Variant &retval) {
     tmp[user_str.length()] = '\0';
     tmp += (user_str.length() + 1);
 
-    if (password_str.length() > 0)
-    {
+    if (password_str.length() > 0) {
         //auth-response
         char hash_0[20];
         bzero(hash_0, sizeof (hash_0));
@@ -787,16 +709,14 @@ void responseAuth(Object &_this, Args &args, Variant &retval) {
         int *c = (int *) hash_3;
 
         int i;
-        for (i = 0; i < 5; i++)
-        {
+        for (i = 0; i < 5; i++) {
             c[i] = a[i] ^ b[i];
         }
 
         *tmp = 20;
         memcpy(tmp + 1, hash_3, 20);
         tmp += 21;
-    } else
-    {
+    } else {
         *tmp = 0;
         tmp++;
     }
@@ -818,13 +738,13 @@ void responseAuth(Object &_this, Args &args, Variant &retval) {
     retval = tmp_str;
 }
 
-void packOkData(Object &_this, Args &args, Variant &retval) {
+PHPX_PURE_METHOD(MysqlProtocol, packOkData) {
+    //void packOkData(Object &_this, Args &args, Variant &retval) {
     Variant effect_rows = args[0];
     Variant insert_id = args[1];
 
     swString *sql_data_buffer = swString_new(SW_BUFFER_SIZE_STD);
-    if (!sql_data_buffer)
-    {
+    if (!sql_data_buffer) {
         swoole_error_log(SW_LOG_ERROR, SW_ERROR_MALLOC_FAIL, "malloc[0] failed.");
         retval = 0;
     }
@@ -860,13 +780,13 @@ void packOkData(Object &_this, Args &args, Variant &retval) {
 
 }
 
-void packErrorData(Object &_this, Args &args, Variant &retval) {
+PHPX_PURE_METHOD(MysqlProtocol, packErrorData) {
+    //void packErrorData(Object &_this, Args &args, Variant &retval) {
 
     Variant error_code = args[0];
     Variant error_msg = args[1];
     swString *sql_data_buffer = swString_new(SW_BUFFER_SIZE_STD);
-    if (!sql_data_buffer)
-    {
+    if (!sql_data_buffer) {
         swoole_error_log(SW_LOG_ERROR, SW_ERROR_MALLOC_FAIL, "malloc[0] failed.");
         retval = 0;
         return;
@@ -906,11 +826,9 @@ void packErrorData(Object &_this, Args &args, Variant &retval) {
 }
 
 static sw_inline void encode_field_num(swString *buffer, uint64_t num) {
-    if (num == 0)
-    {
+    if (num == 0) {
         buffer->str[buffer->length - 1] = 251;
-    } else if (1 <= num && num <= 250)
-    {//column num in result type packet
+    } else if (1 <= num && num <= 250) {//column num in result type packet
         buffer->str[buffer->length - 1] = num;
     } else if (num <= 0xff)//2byte
     {
@@ -924,8 +842,7 @@ static sw_inline void encode_field_num(swString *buffer, uint64_t num) {
         swString_check_size(buffer, 3);
         mysql_pack_length((int) num, buffer->str + buffer->length);
         buffer->length += 3;
-    } else
-    {
+    } else {
         buffer->str[buffer->length - 1] = 254;
         swString_check_size(buffer, 8);
         mysql_pack_8length(num, buffer->str + buffer->length);
@@ -933,14 +850,14 @@ static sw_inline void encode_field_num(swString *buffer, uint64_t num) {
     }
 }
 
-void packResultData(Object &_this, Args &args, Variant &retval) {
+PHPX_PURE_METHOD(MysqlProtocol, packResultData) {
+    //void packResultData(Object &_this, Args &args, Variant &retval) {
     Variant vars = args[0];
     Array arrays(vars);
     zend_uchar pack_num = 0; //0--255
 
     swString *sql_data_buffer = swString_new(SW_BUFFER_SIZE_STD);
-    if (!sql_data_buffer)
-    {
+    if (!sql_data_buffer) {
         swoole_error_log(SW_LOG_ERROR, SW_ERROR_MALLOC_FAIL, "malloc[0] failed.");
         retval = 0;
         return;
@@ -952,8 +869,7 @@ void packResultData(Object &_this, Args &args, Variant &retval) {
 
     Variant first_row = arrays[0];
     Array first_row_arr(first_row);
-    if (first_row_arr.count() <= 0)
-    {
+    if (first_row_arr.count() <= 0) {
         swoole_error_log(SW_LOG_ERROR, SW_ERROR_PHP_FATAL_ERROR, "first row null");
         retval = 0;
         return;
@@ -965,10 +881,8 @@ void packResultData(Object &_this, Args &args, Variant &retval) {
 
     const char *key;
     int keylen;
-    for (auto i = first_row_arr.begin(); i != first_row_arr.end(); i++)
-    {
-        if (!i.key().isString())
-        {
+    for (auto i = first_row_arr.begin(); i != first_row_arr.end(); i++) {
+        if (!i.key().isString()) {
             swoole_error_log(SW_LOG_ERROR, SW_ERROR_PHP_FATAL_ERROR, "key must be string");
             retval = 0;
             return;
@@ -1053,8 +967,7 @@ void packResultData(Object &_this, Args &args, Variant &retval) {
      * for rows 
      */
 
-    for (int i = 0; i < arrays.count(); i++)
-    {
+    for (int i = 0; i < arrays.count(); i++) {
         Variant row = arrays[i];
         Array row_arr(row);
 
@@ -1063,8 +976,7 @@ void packResultData(Object &_this, Args &args, Variant &retval) {
         sql_data_buffer->length += 4;
         int start = sql_data_buffer->length;
 
-        for (auto j = row_arr.begin(); j != row_arr.end(); j++)
-        {
+        for (auto j = row_arr.begin(); j != row_arr.end(); j++) {
             const char *value = j.value().toString().c_str();
             int value_len = j.value().toString().length();
             /*encode value*/
@@ -1094,8 +1006,7 @@ void packResultData(Object &_this, Args &args, Variant &retval) {
 }
 
 int mysql_proxy_get_length(swProtocol *protocol, swConnection *conn, char *data, uint32_t length) {
-    if (length < 4)
-    {
+    if (length < 4) {
 
         return SW_OK;
     }
@@ -1103,4 +1014,64 @@ int mysql_proxy_get_length(swProtocol *protocol, swConnection *conn, char *data,
     int len = mysql_uint3korr(data);
     return len + 4;
 
+}
+
+PHPX_EXTENSION() {
+    Extension *extension = new Extension("mysql_proxy", "0.0.1");
+
+    extension->onStart = [extension] {
+
+        swoole_add_function("mysql_proxy_get_length", (void *) mysql_proxy_get_length);
+
+        Class *c = new Class("MysqlProtocol");
+
+        /**
+         * 发送链接ok包
+         */
+        c->addMethod("sendConnectOk",  sendConnectOk);
+        /**
+         * 获取dbname
+         */
+        c->addMethod("getDbName",  getDbName);
+        /**
+         * 发送auth包
+         */
+        c->addMethod("sendConnectAuth",  sendConnectAuth);
+        /**
+         * 相应mysql server的Auth的包
+         */
+        c->addMethod("responseAuth",  responseAuth);
+        /**
+         * 获取链接的最后一个包
+         */
+        c->addMethod("getConnResult",  getConnResult);
+
+        /**
+         * 获取mysql返回信息
+         */
+        c->addMethod("getResp",  getResp);
+
+        /**
+         * 获取sql
+         */
+        c->addMethod("getSql",  getSql);
+        /**
+         * 发送ok包 insert update
+         */
+        c->addMethod("packOkData",  packOkData);
+        /**
+         * 发送error包
+         */
+        c->addMethod("packErrorData",  packErrorData);
+        /**
+         * 发送数组  selelct
+         */
+        c->addMethod("packResultData",  packResultData);
+
+        extension->registerClass(c);
+
+    };
+
+
+    return extension;
 }
