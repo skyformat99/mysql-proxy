@@ -20,7 +20,6 @@
 //#include "sha1.h"  
 
 #define swoole_mysql_proxy_name  "swoole"
-#define PHPX_PURE_METHOD(c, m) void m(Object &_this, Args &args, Variant &retval)
 
 #if defined(__GNUC__)
 #if __GNUC__ >= 3
@@ -33,6 +32,8 @@
 #else
 #define sw_inline inline
 #endif
+
+#define PHPX_PURE_METHOD(c, m) void  m(Object &_this, Args &args, Variant &retval)
 
 using namespace std;
 using namespace php;
@@ -252,9 +253,8 @@ PHPX_PURE_METHOD(MysqlProtocol, sendConnectAuth) {
 
 PHPX_PURE_METHOD(MysqlProtocol, getConnResult) {
     //void getConnResult(Object &_this, Args &args, Variant &retval) {
-    string str = args[0].toString();
 
-    const char *buf = str.data();
+    const char *buf = args[0].toCString();
     char *tmp = (char*) buf;
     int packet_length = mysql_uint3korr(tmp);
     //int packet_number = tmp[3];
@@ -273,10 +273,8 @@ PHPX_PURE_METHOD(MysqlProtocol, getConnResult) {
 }
 
 PHPX_PURE_METHOD(MysqlProtocol, getSql) {
-    //void getSql(Object &_this, Args &args, Variant &retval) {
-    string str = args[0].toString();
 
-    const char *buf = str.data();
+    const char *buf = args[0].toCString();
     // int packet_length = mysql_uint3korr(buf);
     //command
     int command = buf[4];
@@ -312,9 +310,8 @@ static unsigned short get_server_status(char * buf) {
 
 PHPX_PURE_METHOD(MysqlProtocol, getResp) {
     //void getResp(Objet s&_this, Args &args, Variant &retval) {
-    string str = args[0].toString();
 
-    char *buf = (char *) str.data();
+    char *buf = (char *) args[0].toCString();
     //command
     int command = buf[4];
     if (command == 0) {//ok
@@ -887,8 +884,8 @@ PHPX_PURE_METHOD(MysqlProtocol, packResultData) {
             retval = 0;
             return;
         }
-        key = i.key().toString().c_str();
-        keylen = i.key().toString().length();
+        key = i.key().toCString();
+        keylen = strlen(i.key().toCString());
 
         /*header space 4*/
         swString_check_size(sql_data_buffer, 4);
@@ -1019,6 +1016,8 @@ int mysql_proxy_get_length(swProtocol *protocol, swConnection *conn, char *data,
 PHPX_EXTENSION() {
     Extension *extension = new Extension("mysql_proxy", "0.0.1");
 
+    extension->require("swoole");
+    
     extension->onStart = [extension] {
 
         swoole_add_function("mysql_proxy_get_length", (void *) mysql_proxy_get_length);

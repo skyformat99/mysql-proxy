@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <in>mysql_proxy.cpp</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="重要文件"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+      <itemPath>nbproject/private/launcher.properties</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>GNU_1|GNU</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <flagsDictionary>
+        <element flagsID="0" commonFlags="-O3 -fPIC -std=c++11"/>
+      </flagsDictionary>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath>mysql_proxy.so</executablePath>
+          <ccTool>
+            <incDir>
+              <pElem>../../../Library/Caches/NetBeans/8.2/remote-files/10.10.12.73_22_guoxinhua/usr/local/include/php</pElem>
+              <pElem>../../../Library/Caches/NetBeans/8.2/remote-files/10.10.12.73_22_guoxinhua/usr/local/include/php/main</pElem>
+              <pElem>../../../Library/Caches/NetBeans/8.2/remote-files/10.10.12.73_22_guoxinhua/usr/local/include/php/TSRM</pElem>
+              <pElem>../../../Library/Caches/NetBeans/8.2/remote-files/10.10.12.73_22_guoxinhua/usr/local/include/php/Zend</pElem>
+              <pElem>../../../Library/Caches/NetBeans/8.2/remote-files/10.10.12.73_22_guoxinhua/usr/local/include/php/ext</pElem>
+              <pElem>../../../Library/Caches/NetBeans/8.2/remote-files/10.10.12.73_22_guoxinhua/usr/local/include/php/ext/date/lib</pElem>
+              <pElem>../../PHP-X/include</pElem>
+              <pElem>../../../usr/local/include/php/ext/swoole/include</pElem>
+              <pElem>../../../usr/local/include/php/ext/swoole</pElem>
+            </incDir>
+            <preprocessorList>
+              <Elem>HAVE_CONFIG_H</Elem>
+            </preprocessorList>
+          </ccTool>
+        </makeTool>
+        <preBuild>
+          <preBuildCommandWorkingDir>.</preBuildCommandWorkingDir>
+          <preBuildCommand></preBuildCommand>
+        </preBuild>
+      </makefileType>
+      <item path="mysql_proxy.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+        </ccTool>
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

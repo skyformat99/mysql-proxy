@@ -132,6 +132,7 @@ class MySQL {
         $db = new \swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC);
         $db->set([
             'open_length_check' => 1,
+            'open_tcp_nodelay'=>true,
             'package_length_func' => 'mysql_proxy_get_length'
                 ]
         );
