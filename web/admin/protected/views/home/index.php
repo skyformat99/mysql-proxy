@@ -1,3 +1,10 @@
+<style>
+    table#url_list_table {
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+    
+</style>
 <body class="hold-transition skin-blue-light sidebar-mini">
 
     <!-- Site wrapper -->
