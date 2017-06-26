@@ -1,4 +1,4 @@
-PHPX_INCLUDE_DIR = "/src/PHP-X"
+PHPX_INCLUDE_DIR = "./PHP-X"
 PHP_INCLUDE = `php-config --includes`
 PHP_INCLUDE_DIR = `php-config --include-dir`
 PHP_EXTENSION_DIR = `php-config --extension-dir`

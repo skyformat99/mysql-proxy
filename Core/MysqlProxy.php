@@ -66,15 +66,15 @@ class MysqlProxy {
 
     public function init() {
 
-        $this->serv = new \swoole_server('0.0.0.0', '9536', SWOOLE_BASE, SWOOLE_SOCK_TCP);
+        $this->serv = new \swoole_server('0.0.0.0', PORT, SWOOLE_BASE, SWOOLE_SOCK_TCP);
         $this->serv->set([
-            'worker_num' => 1,
-            'task_worker_num' => 2,
+            'worker_num' => WORKER_NUM,
+            'task_worker_num' => TASK_WORKER_NUM,
             'dispatch_mode' => 2,
             'open_length_check' => 1,
-            'open_tcp_nodelay'=>true,
-            'log_file' => '/tmp/sqlproxy.log',
-            'daemonize' => 0,
+            'open_tcp_nodelay' => true,
+            'log_file' => SWOOLE_LOG,
+            'daemonize' => DAEMON,
             'package_length_func' => 'mysql_proxy_get_length'
                 ]
         );
@@ -98,120 +98,9 @@ class MysqlProxy {
 //        $env = get_cfg_var('env.name') ? get_cfg_var('env.name') : 'product';
 //        $jsonConfig = \CloudConfig::get("platform/proxy_shequ", "test");
 //        $config = json_decode($jsonConfig, true);
-//        $config = array(
-//            'app_chelun_topic' => array(
-//                'master' => array(
-//                    'host' => '192.168.1.254',
-//                    'port' => 10120,
-//                    'user' => 'chelun_topic',
-//                    'password' => 'F9lUez9A',
-//                    'database' => 'app_chelun_topic',
-//                    'charset' => 'utf8mb4',
-//                )
-//            ), 'infra_chelun' => array(
-//                'master' => array(
-//                    'host' => '192.168.1.221',
-//                    'port' => 10121,
-//                    'user' => 'ro_infra',
-//                    'password' => 'Ui7$F4D#F5Sf',
-//                    'database' => 'infra_chelun',
-//                    'charset' => 'utf8mb4',
-//                )),
-//            'app_chelun' => array(
-//                'master' => array(
-//                    'host' => '192.168.1.41',
-//                    'port' => 3306,
-//                    'user' => 'chelun_user',
-//                    'password' => 'wK22KQucCiQe',
-//                    'database' => 'app_chelun',
-//                    'charset' => 'utf8mb4',
-//        )));
-        $config = array(
-            'eguanjia' => array(                                                                                                                                                                              
-                'master' => array(
-                    'host' => '10.10.2.73',
-                    'port' => 3306,
-                    'user' => 'root',
-                    'password' => 'woshiguo35',
-                    'database' => 'eguanjia',
-                    'charset' => 'utf8',
-                ),
-                'slave' => array(
-                    array(
-                        'host' => '10.10.2.73',
-                        'port' => 3306,
-                        'user' => 'root',
-                        'password' => 'woshiguo35',
-                        'database' => 'eguanjia',
-                        'charset' => 'utf8',
-                    ),
-                ),
-            )
-        );
-// no use
-//        $config = array(
-//            'chelun' => array(//test is tes db
-//                'master' => array(
-//                    'host' => '10.10.1.23',
-//                    'port' => 3306,
-//                    'user' => 'chelun',
-//                    'password' => 'chelun',
-//                    'database' => 'chelun',
-//                    'charset' => 'utf8mb4',
-//                ),
-//                'slave' => array(
-//                    array(
-//                        'host' => '10.10.1.23',
-//                        'port' => 3306,
-//                        'user' => 'chelun',
-//                        'password' => 'chelun',
-//                        'database' => 'chelun',
-//                        'charset' => 'utf8mb4',
-//                    ),
-//                ),
-//            ),
-//            'chelun_home' => array(//test is tes db
-//                'master' => array(
-//                    'host' => '10.10.1.23',
-//                    'port' => 3306,
-//                    'user' => 'chelun',
-//                    'password' => 'chelun',
-//                    'database' => 'chelun_home',
-//                    'charset' => 'utf8mb4',
-//                ),
-//                'slave' => array(
-//                    array(
-//                        'host' => '10.10.1.23',
-//                        'port' => 3306,
-//                        'user' => 'chelun',
-//                        'password' => 'chelun',
-//                        'database' => 'chelun_home',
-//                        'charset' => 'utf8mb4',
-//                    ),
-//                ),
-//            )
-//            , 'spider' => array(//test is tes db
-//                'master' => array(
-//                    'host' => '10.10.1.23',
-//                    'port' => 3306,
-//                    'user' => 'chelun',
-//                    'password' => 'chelun',
-//                    'database' => 'spider',
-//                    'charset' => 'utf8mb4',
-//                ),
-//                'slave' => array(
-//                    array(
-//                        'host' => '10.10.1.23',
-//                        'port' => 3306,
-//                        'user' => 'chelun',
-//                        'password' => 'chelun',
-//                        'database' => 'spider',
-//                        'charset' => 'utf8mb4',
-//                    ),
-//                ),
-//            )
-//        );
-        $this->targetConfig = $config;
+
+
+        $this->targetConfig = MYSQL_CONF;
     }
 
     public function start() {
@@ -273,18 +162,20 @@ class MysqlProxy {
     }
 
     public function OnResult($binaryData, $fd) {
-//        $end = microtime(true) * 1000;
         if (isset($this->client[$fd])) {//有可能已经关闭了
             $this->serv->send($fd, $binaryData);
-//            $logData = array(
-//                'start' => $this->client[$fd]['start'],
-//                'size' => strlen($binaryData),
-//                'end' => $end,
-//                'sql' => $this->client[$fd]['sql'],
-//                'datasource' => $this->client[$fd]['datasource'],
-//                'client_ip' => $this->client[$fd]['client_ip'],
-//            );
-//            $this->serv->task($logData);
+            if (RECORD_QUERY) {
+                $end = microtime(true) * 1000;
+                $logData = array(
+                    'start' => $this->client[$fd]['start'],
+                    'size' => strlen($binaryData),
+                    'end' => $end,
+                    'sql' => $this->client[$fd]['sql'],
+                    'datasource' => $this->client[$fd]['datasource'],
+                    'client_ip' => $this->client[$fd]['client_ip'],
+                );
+                $this->serv->task($logData);
+            }
         }
     }
 
