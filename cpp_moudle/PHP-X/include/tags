@@ -1,0 +1,358 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ABSTRACT	./phpx.h	/^    ABSTRACT = ZEND_ACC_ABSTRACT,$/;"	e	enum:php::ClassFlags
+AFTER_START	./phpx.h	/^        BEFORE_START, AFTER_START,$/;"	e	enum:php::Extension::StartupStatus
+ArgInfo	./phpx.h	/^    ArgInfo(int required_num, bool return_reference = false)$/;"	f	class:php::ArgInfo
+ArgInfo	./phpx.h	/^class ArgInfo$/;"	c	namespace:php
+Args	./phpx.h	/^    Args()$/;"	f	class:php::Args
+Args	./phpx.h	/^class Args$/;"	c	namespace:php
+Array	./phpx.h	/^    Array() :$/;"	f	class:php::Array
+Array	./phpx.h	/^    Array(Variant &v)$/;"	f	class:php::Array
+Array	./phpx.h	/^    Array(zval *v) :$/;"	f	class:php::Array
+Array	./phpx.h	/^class Array: public Variant$/;"	c	namespace:php
+ArrayIterator	./phpx.h	/^    ArrayIterator(Bucket *p)$/;"	f	class:php::ArrayIterator
+ArrayIterator	./phpx.h	/^    ArrayIterator(Bucket *p, Bucket *_pe)$/;"	f	class:php::ArrayIterator
+ArrayIterator	./phpx.h	/^class ArrayIterator$/;"	c	namespace:php
+BEFORE_START	./phpx.h	/^        BEFORE_START, AFTER_START,$/;"	e	enum:php::Extension::StartupStatus
+CLONE	./phpx.h	/^    CLONE = ZEND_ACC_CLONE,$/;"	e	enum:php::ClassFlags
+CONSTRUCT	./phpx.h	/^    CONSTRUCT = ZEND_ACC_CTOR,$/;"	e	enum:php::ClassFlags
+Class	./phpx.h	/^    Class(const char *name)$/;"	f	class:php::Class
+Class	./phpx.h	/^class Class$/;"	c	namespace:php
+ClassFlags	./phpx.h	/^enum ClassFlags$/;"	g	namespace:php
+Constant	./phpx.h	/^    struct Constant$/;"	s	class:php::Class
+DESTRUCT	./phpx.h	/^    DESTRUCT = ZEND_ACC_DTOR,$/;"	e	enum:php::ClassFlags
+Extension	./phpx.h	/^Extension::Extension(const char *name, const char *version)$/;"	f	class:php::Extension
+Extension	./phpx.h	/^class Extension$/;"	c	namespace:php
+FINAL	./phpx.h	/^    FINAL = ZEND_ACC_FINAL,$/;"	e	enum:php::ClassFlags
+INTERFACE	./phpx.h	/^    INTERFACE = ZEND_ACC_INTERFACE,$/;"	e	enum:php::ClassFlags
+Interface	./phpx.h	/^    Interface(const char *name)$/;"	f	class:php::Interface
+Interface	./phpx.h	/^class Interface$/;"	c	namespace:php
+Method	./phpx.h	/^struct Method$/;"	s	namespace:php
+Object	./phpx.h	/^    Object() :$/;"	f	class:php::Object
+Object	./phpx.h	/^    Object(Variant &v) :$/;"	f	class:php::Object
+Object	./phpx.h	/^    Object(zval *v) :$/;"	f	class:php::Object
+Object	./phpx.h	/^    Object(zval *v, bool ref) :$/;"	f	class:php::Object
+Object	./phpx.h	/^class Object: public Variant$/;"	c	namespace:php
+PHPX_EXTENSION	./phpx.h	1531;"	d
+PHPX_FUNCTION	./phpx.h	1529;"	d
+PHPX_MAX_ARGC	./phpx.h	51;"	d
+PHPX_METHOD	./phpx.h	1530;"	d
+PHPX_MNAME	./phpx.h	1528;"	d
+PHPX_NAME	./phpx.h	1527;"	d
+PHPX_VAR_DUMP_LEVEL	./phpx.h	52;"	d
+PRIVATE	./phpx.h	/^    PRIVATE = ZEND_ACC_PRIVATE,$/;"	e	enum:php::ClassFlags
+PROTECTED	./phpx.h	/^    PROTECTED = ZEND_ACC_PROTECTED,$/;"	e	enum:php::ClassFlags
+PUBLIC	./phpx.h	/^    PUBLIC = ZEND_ACC_PUBLIC,$/;"	e	enum:php::ClassFlags
+Property	./phpx.h	/^    struct Property$/;"	s	class:php::Class
+Resource	./phpx.h	/^struct Resource$/;"	s	namespace:php
+SORT_ASC	./phpx.h	/^    SORT_ASC = 4,$/;"	e	enum:php::SortFlags
+SORT_DESC	./phpx.h	/^    SORT_DESC = 3,$/;"	e	enum:php::SortFlags
+SORT_FLAG_CASE	./phpx.h	/^    SORT_FLAG_CASE = 8,$/;"	e	enum:php::SortFlags
+SORT_LOCALE_STRING	./phpx.h	/^    SORT_LOCALE_STRING = 5,$/;"	e	enum:php::SortFlags
+SORT_NATURAL	./phpx.h	/^    SORT_NATURAL = 6,$/;"	e	enum:php::SortFlags
+SORT_NUMERIC	./phpx.h	/^    SORT_NUMERIC = 1,$/;"	e	enum:php::SortFlags
+SORT_REGULAR	./phpx.h	/^    SORT_REGULAR = 0,$/;"	e	enum:php::SortFlags
+SORT_STRING	./phpx.h	/^    SORT_STRING = 2,$/;"	e	enum:php::SortFlags
+STATIC	./phpx.h	/^    STATIC = ZEND_ACC_STATIC,$/;"	e	enum:php::ClassFlags
+SortFlags	./phpx.h	/^enum SortFlags$/;"	g	namespace:php
+StartupStatus	./phpx.h	/^    enum StartupStatus$/;"	g	class:php::Extension
+String	./phpx.h	/^    String(Variant &v)$/;"	f	class:php::String
+String	./phpx.h	/^    String(const char *str)$/;"	f	class:php::String
+String	./phpx.h	/^    String(const char *str, size_t len)$/;"	f	class:php::String
+String	./phpx.h	/^    String(string &str)$/;"	f	class:php::String
+String	./phpx.h	/^class String$/;"	c	namespace:php
+TRAIT	./phpx.h	/^    TRAIT = ZEND_ACC_TRAIT,$/;"	e	enum:php::ClassFlags
+VM	./embed.h	/^    VM(int argc, char ** argv)$/;"	f	class:php::VM
+VM	./embed.h	/^class VM$/;"	c	namespace:php
+Variant	./phpx.h	/^    Variant()$/;"	f	class:php::Variant
+Variant	./phpx.h	/^    Variant(bool v)$/;"	f	class:php::Variant
+Variant	./phpx.h	/^    Variant(const char *str)$/;"	f	class:php::Variant
+Variant	./phpx.h	/^    Variant(const char *str, size_t len)$/;"	f	class:php::Variant
+Variant	./phpx.h	/^    Variant(double v)$/;"	f	class:php::Variant
+Variant	./phpx.h	/^    Variant(float v)$/;"	f	class:php::Variant
+Variant	./phpx.h	/^    Variant(int v)$/;"	f	class:php::Variant
+Variant	./phpx.h	/^    Variant(long v)$/;"	f	class:php::Variant
+Variant	./phpx.h	/^    Variant(nullptr_t v)$/;"	f	class:php::Variant
+Variant	./phpx.h	/^    Variant(string &str)$/;"	f	class:php::Variant
+Variant	./phpx.h	/^    Variant(zend_resource *res)$/;"	f	class:php::Variant
+Variant	./phpx.h	/^    Variant(zval *v)$/;"	f	class:php::Variant
+Variant	./phpx.h	/^    Variant(zval *v, bool ref)$/;"	f	class:php::Variant
+Variant	./phpx.h	/^class Variant$/;"	c	namespace:php
+_call	./phpx.h	/^static inline Variant _call(zval *object, zval *func)$/;"	f	namespace:php
+_call	./phpx.h	/^static inline Variant _call(zval *object, zval *func, Array &args)$/;"	f	namespace:php
+_ce	./phpx.h	/^    zend_class_entry _ce;$/;"	m	class:php::Class
+_ce	./phpx.h	/^    zend_class_entry _ce;$/;"	m	class:php::Interface
+_exec_function	./phpx.h	/^static void _exec_function(zend_execute_data *data, zval *return_value)$/;"	f	namespace:php
+_exec_method	./phpx.h	/^static void _exec_method(zend_execute_data *data, zval *return_value)$/;"	f	namespace:php
+_index	./phpx.h	/^    zend_ulong _index;$/;"	m	class:php::ArrayIterator
+_key	./phpx.h	/^    zend_string *_key;$/;"	m	class:php::ArrayIterator
+_module_number_to_extension	./phpx.h	/^static unordered_map<int, Extension*> _module_number_to_extension;$/;"	m	namespace:php
+_name_to_extension	./phpx.h	/^static unordered_map<string, Extension*> _name_to_extension;$/;"	m	namespace:php
+_ptr	./phpx.h	/^    Bucket *_ptr;$/;"	m	class:php::ArrayIterator
+_val	./phpx.h	/^    zval *_val;$/;"	m	class:php::ArrayIterator
+activate	./phpx.h	/^    bool activate()$/;"	f	class:php::Class
+activate	./phpx.h	/^    bool activate()$/;"	f	class:php::Interface
+activated	./phpx.h	/^    bool activated = false;$/;"	m	class:php::Interface
+activated	./phpx.h	/^    bool activated;$/;"	m	class:php::Class
+add	./phpx.h	/^    void add(const char *name, const char *class_name = nullptr, int type_hint = 0, bool pass_by_reference = false,$/;"	f	class:php::ArgInfo
+addConstant	./phpx.h	/^    bool addConstant(const char *name, Variant v)$/;"	f	class:php::Class
+addMethod	./phpx.h	/^    bool addMethod(const char *name, ArgInfo *info)$/;"	f	class:php::Interface
+addMethod	./phpx.h	/^    bool addMethod(const char *name, method_t method, int flags = PUBLIC, ArgInfo *info = nullptr)$/;"	f	class:php::Class
+addProperty	./phpx.h	/^    bool addProperty(const char *name, Variant v, int flags = PUBLIC)$/;"	f	class:php::Class
+addRef	./phpx.h	/^    inline void addRef()$/;"	f	class:php::Variant
+alias	./phpx.h	/^    bool alias(const char *alias_name)$/;"	f	class:php::Class
+append	./phpx.h	/^    void append(Array &v)$/;"	f	class:php::Array
+append	./phpx.h	/^    void append(Variant v)$/;"	f	class:php::Array
+append	./phpx.h	/^    void append(bool v)$/;"	f	class:php::Array
+append	./phpx.h	/^    void append(const char *str)$/;"	f	class:php::Array
+append	./phpx.h	/^    void append(double v)$/;"	f	class:php::Array
+append	./phpx.h	/^    void append(float v)$/;"	f	class:php::Array
+append	./phpx.h	/^    void append(int v)$/;"	f	class:php::Array
+append	./phpx.h	/^    void append(long v)$/;"	f	class:php::Array
+append	./phpx.h	/^    void append(string &str)$/;"	f	class:php::Array
+append	./phpx.h	/^    void append(void *v)$/;"	f	class:php::Array
+append	./phpx.h	/^    void append(zval *v)$/;"	f	class:php::Args
+append	./phpx.h	/^    void append(zval *v)$/;"	f	class:php::Array
+arg_list	./phpx.h	/^static zval **arg_list = nullptr;$/;"	m	namespace:php
+arg_list_size	./phpx.h	/^static int arg_list_size = 0;$/;"	m	namespace:php
+argc	./phpx.h	/^    int argc;$/;"	m	class:php::Args
+array_data_compare	./phpx.h	/^static int array_data_compare(const void *a, const void *b)$/;"	f	namespace:php
+begin	./phpx.h	/^    ArrayIterator begin()$/;"	f	class:php::Array
+body	./phpx.h	/^    vector<vector<string> > body;$/;"	m	class:php::Extension
+c_str	./phpx.h	/^    char* c_str()$/;"	f	class:php::String
+call	./phpx.h	/^    Variant call(Variant &func, Array &args)$/;"	f	class:php::Object
+call	./phpx.h	/^    Variant call(const char *func, Array &args)$/;"	f	class:php::Object
+call	./phpx.h	/^Variant call(Variant &func)$/;"	f	namespace:php
+call	./phpx.h	/^Variant call(Variant &func, Array &args)$/;"	f	namespace:php
+call	./phpx.h	/^Variant call(const char *func, Array &args)$/;"	f	namespace:php
+ce	./phpx.h	/^    zend_class_entry *ce;$/;"	m	class:php::Class
+ce	./phpx.h	/^    zend_class_entry *ce;$/;"	m	class:php::Interface
+checkStartupStatus	./phpx.h	/^    void checkStartupStatus(enum StartupStatus status, const char *func)$/;"	f	class:php::Extension
+class_map	./phpx.h	/^static unordered_map<string, Class*> class_map;$/;"	m	namespace:php
+class_name	./phpx.h	/^    string class_name;$/;"	m	class:php::Class
+clean	./phpx.h	/^    void clean()$/;"	f	class:php::Array
+constant	./phpx.h	/^Variant constant(const char *name)$/;"	f	namespace:php
+constants	./phpx.h	/^    vector<Constant> constants;$/;"	m	class:php::Class
+contains	./phpx.h	/^    bool contains(Variant &_other_var, bool strict = false)$/;"	f	class:php::Array
+copy	./phpx.h	/^    void copy(Variant &v)$/;"	f	class:php::Variant
+copy	./phpx.h	/^    void copy(char *str, size_t size)$/;"	f	class:php::Variant
+count	./phpx.h	/^    inline size_t count()$/;"	f	class:php::Array
+count	./phpx.h	/^    size_t count()$/;"	f	class:php::ArgInfo
+count	./phpx.h	/^    size_t count()$/;"	f	class:php::Args
+create	./phpx.h	/^Object create(const char *name)$/;"	f	namespace:php
+create	./phpx.h	/^Object create(const char *name, Array &args)$/;"	f	namespace:php
+delRef	./phpx.h	/^    inline void delRef()$/;"	f	class:php::Variant
+deps_array_size	./phpx.h	/^    int deps_array_size = 0;$/;"	m	class:php::Extension
+deps_count	./phpx.h	/^    int deps_count = 0;$/;"	m	class:php::Extension
+dup	./phpx.h	/^    Variant* dup()$/;"	f	class:php::Variant
+echo	./phpx.h	/^void echo(const char *format, ...)$/;"	f	namespace:php
+empty	./phpx.h	/^    bool empty()$/;"	f	class:php::Args
+empty	./phpx.h	/^    bool empty()$/;"	f	class:php::Array
+end	./phpx.h	/^    ArrayIterator end()$/;"	f	class:php::Array
+equals	./phpx.h	/^    bool equals(String &str, bool ci = false)$/;"	f	class:php::String
+equals	./phpx.h	/^    bool equals(Variant &v, bool strict = false)$/;"	f	class:php::Variant
+equals	./phpx.h	/^    bool equals(const char *str)$/;"	f	class:php::String
+equals	./phpx.h	/^    bool equals(string &str)$/;"	f	class:php::String
+error	./phpx.h	/^void error(int level, const char *format, ...)$/;"	f	namespace:php
+eval	./embed.h	/^    void eval(char *script)$/;"	f	class:php::VM
+eval	./embed.h	/^    void eval(string &script)$/;"	f	class:php::VM
+exec	./phpx.h	/^    Variant exec(const char *func)$/;"	f	class:php::Object
+exec	./phpx.h	/^    Variant exec(const char *func, Variant v1)$/;"	f	class:php::Object
+exec	./phpx.h	/^    Variant exec(const char *func, Variant v1, Variant v2)$/;"	f	class:php::Object
+exec	./phpx.h	/^    Variant exec(const char *func, Variant v1, Variant v2, Variant v3)$/;"	f	class:php::Object
+exec	./phpx.h	/^    Variant exec(const char *func, Variant v1, Variant v2, Variant v3, Variant v4)$/;"	f	class:php::Object
+exec	./phpx.h	/^    Variant exec(const char *func, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5)$/;"	f	class:php::Object
+exec	./phpx.h	/^    Variant exec(const char *func, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5, Variant v6)$/;"	f	class:php::Object
+exec	./phpx.h	/^    Variant exec(const char *func, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5, Variant v6, Variant v7)$/;"	f	class:php::Object
+exec	./phpx.h	/^    Variant exec(const char *func, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5, Variant v6, Variant v7, Variant v8)$/;"	f	class:php::Object
+exec	./phpx.h	/^    Variant exec(const char *func, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5, Variant v6, Variant v7, Variant v8, Variant v9)$/;"	f	class:php::Object
+exec	./phpx.h	/^    Variant exec(const char *func, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5, Variant v6, Variant v7, Variant v8, Variant v9, Variant v10)$/;"	f	class:php::Object
+exec	./phpx.h	/^Variant exec(const char *func)$/;"	f	namespace:php
+exec	./phpx.h	/^Variant exec(const char *func, Variant v1)$/;"	f	namespace:php
+exec	./phpx.h	/^Variant exec(const char *func, Variant v1, Variant v2)$/;"	f	namespace:php
+exec	./phpx.h	/^Variant exec(const char *func, Variant v1, Variant v2, Variant v3)$/;"	f	namespace:php
+exec	./phpx.h	/^Variant exec(const char *func, Variant v1, Variant v2, Variant v3, Variant v4)$/;"	f	namespace:php
+exec	./phpx.h	/^Variant exec(const char *func, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5)$/;"	f	namespace:php
+exec	./phpx.h	/^Variant exec(const char *func, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5, Variant v6)$/;"	f	namespace:php
+exec	./phpx.h	/^Variant exec(const char *func, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5, Variant v6, Variant v7)$/;"	f	namespace:php
+exec	./phpx.h	/^Variant exec(const char *func, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5, Variant v6, Variant v7, Variant v8)$/;"	f	namespace:php
+exec	./phpx.h	/^Variant exec(const char *func, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5, Variant v6, Variant v7, Variant v8, Variant v9)$/;"	f	namespace:php
+exec	./phpx.h	/^Variant exec(const char *func, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5, Variant v6, Variant v7, Variant v8, Variant v9, Variant v10)$/;"	f	namespace:php
+exists	./phpx.h	/^    bool exists(const char *key)$/;"	f	class:php::Array
+exists	./phpx.h	/^    bool exists(int i)$/;"	f	class:php::Args
+exists	./phpx.h	/^    bool exists(string &key)$/;"	f	class:php::Array
+exit_status	./embed.h	/^    int exit_status;$/;"	m	class:php::VM
+extend	./phpx.h	/^    void extend(size_t new_size)$/;"	f	class:php::String
+extends	./phpx.h	/^    bool extends(Class *parent)$/;"	f	class:php::Class
+extends	./phpx.h	/^    bool extends(const char *_parent_class)$/;"	f	class:php::Class
+extension_after_request	./phpx.h	/^int extension_after_request(int type, int module_number)$/;"	f	namespace:php
+extension_before_request	./phpx.h	/^int extension_before_request(int type, int module_number)$/;"	f	namespace:php
+extension_info	./phpx.h	/^void extension_info(zend_module_entry *module)$/;"	f	namespace:php
+extension_shutdown	./phpx.h	/^int extension_shutdown(int type, int module_number)$/;"	f	namespace:php
+extension_startup	./phpx.h	/^int extension_startup(int type, int module_number)$/;"	f	namespace:php
+flags	./phpx.h	/^        int flags;$/;"	m	struct:php::Class::Property
+flags	./phpx.h	/^    int flags;$/;"	m	struct:php::Method
+free_memory	./phpx.h	/^    bool free_memory = true;$/;"	m	class:php::String
+function_array_size	./phpx.h	/^    int function_array_size = 0;$/;"	m	class:php::Extension
+function_count	./phpx.h	/^    int function_count = 0;$/;"	m	class:php::Extension
+function_map	./phpx.h	/^static unordered_map<string, function_t> function_map;$/;"	m	namespace:php
+function_t	./phpx.h	/^typedef void (*function_t)(Args &, Variant &retval);$/;"	t	namespace:php
+get	./phpx.h	/^    Variant get(const char *name)$/;"	f	class:php::Object
+get	./phpx.h	/^    static Variant get(const char *name, string p_name)$/;"	f	class:php::Class
+get	./phpx.h	/^    zend_internal_arg_info* get()$/;"	f	class:php::ArgInfo
+getClassEntry	./phpx.h	/^static inline zend_class_entry *getClassEntry(const char *name)$/;"	f	namespace:php
+getClassName	./phpx.h	/^    string getClassName()$/;"	f	class:php::Object
+getId	./phpx.h	/^    uint32_t getId()$/;"	f	class:php::Object
+getName	./phpx.h	/^    string getName()$/;"	f	class:php::Class
+getName	./phpx.h	/^    string getName()$/;"	f	class:php::Interface
+getRefCount	./phpx.h	/^    inline int getRefCount()$/;"	f	class:php::Variant
+getStaticProperty	./phpx.h	/^    Variant getStaticProperty(string p_name)$/;"	f	class:php::Class
+global	./phpx.h	/^Variant global(const char *name)$/;"	f	namespace:php
+header	./phpx.h	/^    vector<string> header;$/;"	m	class:php::Extension
+implements	./phpx.h	/^    bool implements(const char *name)$/;"	f	class:php::Class
+implements	./phpx.h	/^    bool implements(zend_class_entry *interface_ce)$/;"	f	class:php::Class
+include	./embed.h	/^    bool include(string file)$/;"	f	class:php::VM
+info	./phpx.h	/^    ArgInfo *info;$/;"	m	struct:php::Method
+info	./phpx.h	/^    void info(vector<string> header, vector<vector<string> > body)$/;"	f	class:php::Extension
+info	./phpx.h	/^    zend_internal_arg_info *info;$/;"	m	class:php::ArgInfo
+init	./phpx.h	/^    inline void init()$/;"	f	class:php::Variant
+interface_map	./phpx.h	/^static unordered_map<string, Interface*> interface_map;$/;"	m	namespace:php
+interfaces	./phpx.h	/^    unordered_map<string, zend_class_entry *> interfaces;$/;"	m	class:php::Class
+isArray	./phpx.h	/^    inline bool isArray()$/;"	f	class:php::Variant
+isBool	./phpx.h	/^    inline bool isBool()$/;"	f	class:php::Variant
+isFloat	./phpx.h	/^    inline bool isFloat()$/;"	f	class:php::Variant
+isInt	./phpx.h	/^    inline bool isInt()$/;"	f	class:php::Variant
+isNull	./phpx.h	/^    inline bool isNull()$/;"	f	class:php::Variant
+isObject	./phpx.h	/^    inline bool isObject()$/;"	f	class:php::Variant
+isReference	./phpx.h	/^    inline bool isReference()$/;"	f	class:php::Variant
+isResource	./phpx.h	/^    inline bool isResource()$/;"	f	class:php::Variant
+isString	./phpx.h	/^    inline bool isString()$/;"	f	class:php::Variant
+key	./phpx.h	/^    Variant key()$/;"	f	class:php::ArrayIterator
+length	./phpx.h	/^    inline size_t length()$/;"	f	class:php::Variant
+length	./phpx.h	/^    size_t length()$/;"	f	class:php::String
+list	./phpx.h	/^    vector<zend_internal_arg_info> list;$/;"	m	class:php::ArgInfo
+merge	./phpx.h	/^    void merge(Array &source, bool overwrite = false)$/;"	f	class:php::Array
+method	./phpx.h	/^    method_t method;$/;"	m	struct:php::Method
+methodExists	./phpx.h	/^    bool methodExists(const char *name)$/;"	f	class:php::Object
+method_map	./phpx.h	/^static unordered_map<string, unordered_map<string, method_t> > method_map;$/;"	m	namespace:php
+method_t	./phpx.h	/^typedef void (*method_t)(Object &, Args &, Variant &retval);$/;"	t	namespace:php
+methods	./phpx.h	/^    vector<Method> methods;$/;"	m	class:php::Class
+methods	./phpx.h	/^    vector<Method> methods;$/;"	m	class:php::Interface
+module	./phpx.h	/^    zend_module_entry module =$/;"	m	class:php::Extension
+name	./phpx.h	/^        string name;$/;"	m	struct:php::Class::Constant
+name	./phpx.h	/^        string name;$/;"	m	struct:php::Class::Property
+name	./phpx.h	/^    const char *name;$/;"	m	struct:php::Resource
+name	./phpx.h	/^    string name;$/;"	m	class:php::Extension
+name	./phpx.h	/^    string name;$/;"	m	class:php::Interface
+name	./phpx.h	/^    string name;$/;"	m	struct:php::Method
+newObject	./phpx.h	/^Object newObject(const char *name)$/;"	f	namespace:php
+newObject	./phpx.h	/^Object newObject(const char *name, Variant v1)$/;"	f	namespace:php
+newObject	./phpx.h	/^Object newObject(const char *name, Variant v1, Variant v2)$/;"	f	namespace:php
+newObject	./phpx.h	/^Object newObject(const char *name, Variant v1, Variant v2, Variant v3)$/;"	f	namespace:php
+newObject	./phpx.h	/^Object newObject(const char *name, Variant v1, Variant v2, Variant v3, Variant v4)$/;"	f	namespace:php
+newObject	./phpx.h	/^Object newObject(const char *name, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5)$/;"	f	namespace:php
+newObject	./phpx.h	/^Object newObject(const char *name, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5, Variant v6)$/;"	f	namespace:php
+newObject	./phpx.h	/^Object newObject(const char *name, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5, Variant v6, Variant v7)$/;"	f	namespace:php
+newObject	./phpx.h	/^Object newObject(const char *name, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5, Variant v6, Variant v7, Variant v8)$/;"	f	namespace:php
+newObject	./phpx.h	/^Object newObject(const char *name, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5, Variant v6, Variant v7, Variant v8, Variant v9)$/;"	f	namespace:php
+newObject	./phpx.h	/^Object newObject(const char *name, Variant v1, Variant v2, Variant v3, Variant v4, Variant v5, Variant v6, Variant v7, Variant v8, Variant v9, Variant v10)$/;"	f	namespace:php
+newResource	./phpx.h	/^Variant newResource(const char *name, T *v)$/;"	f	namespace:php
+onAfterRequest	./phpx.h	/^    std::function<void(void)> onAfterRequest = nullptr;$/;"	m	class:php::Extension
+onBeforeRequest	./phpx.h	/^    std::function<void(void)> onBeforeRequest = nullptr;$/;"	m	class:php::Extension
+onShutdown	./phpx.h	/^    std::function<void(void)> onShutdown = nullptr;$/;"	m	class:php::Extension
+onStart	./phpx.h	/^    std::function<void(void)> onStart = nullptr;$/;"	m	class:php::Extension
+operator !=	./phpx.h	/^    bool operator !=(ArrayIterator b)$/;"	f	class:php::ArrayIterator
+operator ++	./phpx.h	/^    void operator ++(int i)$/;"	f	class:php::ArrayIterator
+operator =	./phpx.h	/^    void operator =(Variant v)$/;"	f	class:php::Variant
+operator =	./phpx.h	/^    void operator =(bool v)$/;"	f	class:php::Variant
+operator =	./phpx.h	/^    void operator =(const char *str)$/;"	f	class:php::Variant
+operator =	./phpx.h	/^    void operator =(double v)$/;"	f	class:php::Variant
+operator =	./phpx.h	/^    void operator =(float v)$/;"	f	class:php::Variant
+operator =	./phpx.h	/^    void operator =(int v)$/;"	f	class:php::Variant
+operator =	./phpx.h	/^    void operator =(long v)$/;"	f	class:php::Variant
+operator =	./phpx.h	/^    void operator =(string &str)$/;"	f	class:php::Variant
+operator []	./phpx.h	/^    Variant operator [](const char *key)$/;"	f	class:php::Array
+operator []	./phpx.h	/^    Variant operator [](int i)$/;"	f	class:php::Args
+operator []	./phpx.h	/^    Variant operator [](int i)$/;"	f	class:php::Array
+parent_ce	./phpx.h	/^    zend_class_entry *parent_ce;$/;"	m	class:php::Class
+parent_class_name	./phpx.h	/^    string parent_class_name;$/;"	m	class:php::Class
+pe	./phpx.h	/^    Bucket *pe;$/;"	m	class:php::ArrayIterator
+php	./embed.h	/^namespace php$/;"	n
+php	./phpx.h	/^namespace php$/;"	n
+program_name	./embed.h	/^    string program_name;$/;"	m	class:php::VM
+propertyExists	./phpx.h	/^    bool propertyExists(const char *name)$/;"	f	class:php::Object
+propertys	./phpx.h	/^    vector<Property> propertys;$/;"	m	class:php::Class
+ptr	./phpx.h	/^    Bucket *ptr()$/;"	f	class:php::ArrayIterator
+ptr	./phpx.h	/^    inline zval *ptr(void)$/;"	f	class:php::Variant
+ptr	./phpx.h	/^    zend_class_entry* ptr()$/;"	f	class:php::Class
+ptr	./phpx.h	/^    zend_string* ptr()$/;"	f	class:php::String
+ref_val	./phpx.h	/^    zval *ref_val;$/;"	m	class:php::Variant
+reference	./phpx.h	/^    bool reference;$/;"	m	class:php::Variant
+registerClass	./phpx.h	/^    bool registerClass(Class *c)$/;"	f	class:php::Extension
+registerConstant	./phpx.h	/^    bool registerConstant(const char *name, Variant &v)$/;"	f	class:php::Extension
+registerConstant	./phpx.h	/^    bool registerConstant(const char *name, bool v)$/;"	f	class:php::Extension
+registerConstant	./phpx.h	/^    bool registerConstant(const char *name, const char *v)$/;"	f	class:php::Extension
+registerConstant	./phpx.h	/^    bool registerConstant(const char *name, double v)$/;"	f	class:php::Extension
+registerConstant	./phpx.h	/^    bool registerConstant(const char *name, float v)$/;"	f	class:php::Extension
+registerConstant	./phpx.h	/^    bool registerConstant(const char *name, int v)$/;"	f	class:php::Extension
+registerConstant	./phpx.h	/^    bool registerConstant(const char *name, long v)$/;"	f	class:php::Extension
+registerConstant	./phpx.h	/^    bool registerConstant(const char *name, string &v)$/;"	f	class:php::Extension
+registerFunction	./phpx.h	/^    bool registerFunction(const char *name, function_t func, ArgInfo *info = nullptr)$/;"	f	class:php::Extension
+registerInterface	./phpx.h	/^    bool registerInterface(Interface *i)$/;"	f	class:php::Extension
+registerResource	./phpx.h	/^    bool registerResource(const char *name, resource_dtor dtor)$/;"	f	class:php::Extension
+remove	./phpx.h	/^    bool remove(const char *key)$/;"	f	class:php::Array
+require	./phpx.h	/^    bool require(const char *name, const char *version = nullptr)$/;"	f	class:php::Extension
+required_num	./phpx.h	/^    int required_num;$/;"	m	class:php::ArgInfo
+resource_dtor	./phpx.h	/^typedef void (*resource_dtor)(zend_resource *);$/;"	t	namespace:php
+resource_map	./phpx.h	/^static unordered_map<string, Resource *> resource_map;$/;"	m	namespace:php
+return_reference	./phpx.h	/^    bool return_reference;$/;"	m	class:php::ArgInfo
+search	./phpx.h	/^    Variant search(Variant &_other_var, bool strict = false)$/;"	f	class:php::Array
+set	./phpx.h	/^    static bool set(const char *name, string p_name, Variant value)$/;"	f	class:php::Class
+set	./phpx.h	/^    void set(const char *key, Variant &v)$/;"	f	class:php::Array
+set	./phpx.h	/^    void set(const char *key, bool v)$/;"	f	class:php::Array
+set	./phpx.h	/^    void set(const char *key, const char *v)$/;"	f	class:php::Array
+set	./phpx.h	/^    void set(const char *key, double v)$/;"	f	class:php::Array
+set	./phpx.h	/^    void set(const char *key, float v)$/;"	f	class:php::Array
+set	./phpx.h	/^    void set(const char *key, int v)$/;"	f	class:php::Array
+set	./phpx.h	/^    void set(const char *key, long v)$/;"	f	class:php::Array
+set	./phpx.h	/^    void set(const char *key, string &v)$/;"	f	class:php::Array
+set	./phpx.h	/^    void set(const char *name, Array &v)$/;"	f	class:php::Object
+set	./phpx.h	/^    void set(const char *name, Variant &v)$/;"	f	class:php::Object
+set	./phpx.h	/^    void set(const char *name, bool v)$/;"	f	class:php::Object
+set	./phpx.h	/^    void set(const char *name, const char *v)$/;"	f	class:php::Object
+set	./phpx.h	/^    void set(const char *name, double v)$/;"	f	class:php::Object
+set	./phpx.h	/^    void set(const char *name, float v)$/;"	f	class:php::Object
+set	./phpx.h	/^    void set(const char *name, long v)$/;"	f	class:php::Object
+set	./phpx.h	/^    void set(const char *name, string &v)$/;"	f	class:php::Object
+set	./phpx.h	/^    void set(const char *name, string v)$/;"	f	class:php::Object
+set	./phpx.h	/^    void set(int i, Variant v)$/;"	f	class:php::Array
+setStaticProperty	./phpx.h	/^    bool setStaticProperty(string p_name, Variant value)$/;"	f	class:php::Class
+slice	./phpx.h	/^    Array slice(long offset, long length = -1, bool preserve_keys = false)$/;"	f	class:php::Array
+sort	./phpx.h	/^    bool sort()$/;"	f	class:php::Array
+started	./phpx.h	/^    bool started = false;$/;"	m	class:php::Extension
+substr	./phpx.h	/^    String substr(long _offset, long _length = -1)$/;"	f	class:php::String
+throwException	./phpx.h	/^void throwException(const char *name, const char *message, int code = 0)$/;"	f	namespace:php
+toArray	./phpx.h	/^    Array toArray()$/;"	f	class:php::Args
+toBool	./phpx.h	/^    inline bool toBool()$/;"	f	class:php::Variant
+toCString	./phpx.h	/^    inline char* toCString()$/;"	f	class:php::Variant
+toFloat	./phpx.h	/^    inline double toFloat()$/;"	f	class:php::Variant
+toInt	./phpx.h	/^    inline long toInt()$/;"	f	class:php::Variant
+toResource	./phpx.h	/^    T* toResource(const char *name)$/;"	f	class:php::Variant
+toString	./phpx.h	/^    inline string toString()$/;"	f	class:php::Variant
+tolower	./phpx.h	/^    void tolower()$/;"	f	class:php::String
+type	./phpx.h	/^    inline int type()$/;"	f	class:php::Variant
+type	./phpx.h	/^    int type;$/;"	m	struct:php::Resource
+val	./phpx.h	/^    zval val;$/;"	m	class:php::Variant
+value	./phpx.h	/^        zval value;$/;"	m	struct:php::Class::Constant
+value	./phpx.h	/^        zval value;$/;"	m	struct:php::Class::Property
+value	./phpx.h	/^    Variant value()$/;"	f	class:php::ArrayIterator
+value	./phpx.h	/^    zend_string *value;$/;"	m	class:php::String
+var_dump	./phpx.h	/^void var_dump(Variant &v)$/;"	f	namespace:php
+version	./phpx.h	/^    string version;$/;"	m	class:php::Extension
+~String	./phpx.h	/^    ~String()$/;"	f	class:php::String
+~VM	./embed.h	/^    ~VM()$/;"	f	class:php::VM
+~Variant	./phpx.h	/^    ~Variant()$/;"	f	class:php::Variant
