@@ -57,6 +57,8 @@ $config = array(
             'password' => 'woshiguo35',
             'database' => 'eguanjia',
             'charset' => 'utf8',
+            
+            'maxconn' =>20
         ),
         'slave' => array(
             array(
@@ -66,8 +68,10 @@ $config = array(
                 'password' => 'woshiguo35',
                 'database' => 'eguanjia',
                 'charset' => 'utf8',
+                
+                'maxconn' =>20
             ),
         ),
-    )
+    ),
 );
 define("MYSQL_CONF", $config);

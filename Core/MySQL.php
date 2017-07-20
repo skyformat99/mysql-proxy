@@ -44,7 +44,7 @@ class MySQL {
     const RESP_ERROR = -1;
     const RESP_EOF = -2;
 
-    function __construct($config, $maxConnection = 100, $table, callable $onResutl) {
+    function __construct($config, $table, callable $onResutl) {
         if (empty($config['host'])) {
             throw new \Exception("require mysql host option.");
         }
@@ -55,7 +55,7 @@ class MySQL {
         $this->onResult = $onResutl;
         $this->config = $config;
         $this->table = $table;
-        $this->poolSize = $maxConnection;
+        $this->poolSize = $config['maxconn'];
         $this->datasource = $config['host'] . ":" . $config['port'] . ":" . $config['database'];
         $this->protocal = new \MysqlProtocol();
     }

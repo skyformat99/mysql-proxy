@@ -151,7 +151,7 @@ class MysqlProxy {
             }
             $dataSource = $config['host'] . ":" . $config['port'] . ":" . $dbName;
             if (!isset($this->pool[$dataSource])) {
-                $pool = new MySQL($config, 20, $this->table, array($this, 'OnResult'));
+                $pool = new MySQL($config, $this->table, array($this, 'OnResult'));
                 $this->pool[$dataSource] = $pool;
             }
             $this->client[$fd]['start'] = microtime(true) * 1000;
