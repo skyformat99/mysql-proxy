@@ -5,7 +5,7 @@
  * @author xinhua.guo<woshiguo35@sina.com>
  */
 
-namespace Bootstrap;
+namespace Vendor;
 
 
 class Autoloader{
@@ -81,7 +81,7 @@ class Autoloader{
 
     /**
      *
-     * @return \Bootstrap\Autoloader
+     * @return \vendor\Autoloader
      */
     public function init()
     {
