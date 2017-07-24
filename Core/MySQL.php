@@ -6,7 +6,8 @@ class MySQL {
 
     const DEFAULT_PORT = 3306;
 
-    private $protocal = null;
+    private $protocol = null;
+
     public $onResult = null;
     /*
      * 链接池最大连接数
@@ -19,21 +20,22 @@ class MySQL {
     /*
      * 空闲链接
      */
-    public $idelPool = array();
+    public $idlePool = array();
     /*
      * 排队的请求
      */
     public $taskQueue = array();
-    /*
-     * swoole_table用于存储连接数汇总信息
+
+    /**
+     * @var \swoole_table 用于存储连接数汇总信息
      */
     public $table = null;
 
-    /*
-     * 是否正在发送ping命令
+    /**
+     * @var string
      */
-    private $pingFlag = false;
     public $datasource = null;
+
 
     /*
      * 客户端fd到$db的映射
@@ -44,54 +46,57 @@ class MySQL {
     const RESP_ERROR = -1;
     const RESP_EOF = -2;
 
-    function __construct($config, $table, callable $onResutl) {
+    function __construct($config, $table, callable $onResult) {
         if (empty($config['host'])) {
             throw new \Exception("require mysql host option.");
         }
         if (empty($config['port'])) {
             $config['port'] = self::DEFAULT_PORT;
         }
-        $this->protocal = new \MysqlProtocol();
-        $this->onResult = $onResutl;
+        $this->protocol = new \MysqlProtocol();
+        $this->onResult = $onResult;
         $this->config = $config;
         $this->table = $table;
         $this->poolSize = $config['maxconn'];
         $this->datasource = $config['host'] . ":" . $config['port'] . ":" . $config['database'];
-        $this->protocal = new \MysqlProtocol();
+        $this->protocol = new \MysqlProtocol();
     }
 
     public function onClose($db) {//mysql主动断开了和proxy的链接
         echo "close with mysql\n";
-        $this->remove($db); //如果此链接在idel里面就剔除
+        $this->remove($db); //如果此链接在idle里面就剔除
         if ($db->clientFd > 0) {//如果此链接已经分配给了客户端,则向客户端发送错误信息(重启mysql才会发生这种情况，session timeout的时候除非分配连接和gone away同时发生)
-            $binaryData = $this->protocal->packErrorData(ERROR_CONN, "close with mysql");
+            $binaryData = $this->protocol->packErrorData(ERROR_CONN, "close with mysql");
             return call_user_func($this->onResult, $binaryData, $db->clientFd);
         }
     }
 
-    public function onReceive($db, $data = "") {
+    public function onReceive(\swoole_client $db, $data = "") {
         if ($db->status == "CONNECT") {
-            $binary = $this->protocal->responseAuth($data, $this->config['database'], $this->config['user'], $this->config['password'], $this->config['charset']);
+            $binary = $this->protocol->responseAuth($data, $this->config['database'], $this->config['user'], $this->config['password'], $this->config['charset']);
             if (is_array($binary)) {//error??
-                $binaryData = $this->protocal->packErrorData(ERROR_CONN, $binary['error_msg']);
+                $binaryData = $this->protocol->packErrorData(ERROR_CONN, $binary['error_msg']);
                 echo "链接mysql 失败 {$binary['error_msg']}\n";
-                return call_user_func($this->onResult, $binaryData, $db->clientFd);
+                call_user_func($this->onResult, $binaryData, $db->clientFd);
+                return;
             }
             $db->status = "AUTH";
-            return $db->send($binary);
+            $db->send($binary);
+            return;
         } else if ($db->status == "AUTH") {
-            $ret = $this->protocal->getConnResult($data);
+            $ret = $this->protocol->getConnResult($data);
             if ($ret == 1) {
                 $db->status = "EST";
                 echo "链接mysql 成功 $ret\n";
-                return $this->join($db);
+                $this->join($db);
+                return;
             } else {
                 echo "链接mysql 失败 $ret\n";
-                $binaryData = $this->protocal->packErrorData(ERROR_AUTH, "auth error when connect");
+                $binaryData = $this->protocol->packErrorData(ERROR_AUTH, "auth error when connect");
                 call_user_func($this->onResult, $binaryData, $db->clientFd);
             }
         } else {
-            $ret = $this->protocal->getResp($data); //todo change name
+            $ret = $this->protocol->getResp($data); //todo change name
             switch ($ret['cmd']) {
                 case self::RESP_EOF:
                     if (( ++$db->eofCnt) == 2) {//第二次的eof才是[row] eof
@@ -124,7 +129,7 @@ class MySQL {
 
     public function onError($db) {
         echo "something error {$db->errCode}\n";
-        $binaryData = $this->protocal->packErrorData(ERROR_QUERY, "something error {$db->errCode}");
+        $binaryData = $this->protocol->packErrorData(ERROR_QUERY, "something error {$db->errCode}");
         return call_user_func($this->onResult, $binaryData, $db->clientFd);
     }
 
@@ -152,16 +157,18 @@ class MySQL {
 
     public function query($data, $fd) {
         if (isset($this->fd2db[$fd])) {
-            return $this->fd2db[$fd]->send($data);
+            $this->fd2db[$fd]->send($data);
+            return;
         }
-        if (count($this->idelPool) > 0) {
+        if (count($this->idlePool) > 0) {
             //从空闲队列中取出可用的资源
-            $db = array_shift($this->idelPool);
+            $db = array_shift($this->idlePool);
             $this->fd2db[$fd] = $db;
             $db->clientFd = $fd; //当前连接服务于那个客户端fd
             $db->buffer = '';
             $db->eofCnt = 0;
-            return $db->send($data); //发送数据到mysql
+            $db->send($data); //发送数据到mysql
+            return;
         } else if ($this->usedSize < $this->poolSize) {
             array_push($this->taskQueue, array('fd' => $fd, 'data' => $data));
             $this->connect($fd);
@@ -173,20 +180,20 @@ class MySQL {
 
     /**
      * 加入到连接池中
-     * @param $resource
+     * @param $db
      */
     private function join($db) {
         //保存到空闲连接池中
         $this->usedSize++;
         $this->table->incr(MYSQL_CONN_KEY, $this->datasource);
-        array_push($this->idelPool, $db);
+        array_push($this->idlePool, $db);
         $this->doTask();
     }
 
     protected function doTask() {
-        while (count($this->taskQueue) > 0 && count($this->idelPool) > 0) {
+        while (count($this->taskQueue) > 0 && count($this->idlePool) > 0) {
             //从空闲队列中取出可用的资源
-            $db = array_shift($this->idelPool);
+            $db = array_shift($this->idlePool);
             //从队列取出排队的
             $task = array_shift($this->taskQueue);
             $db->clientFd = $task['fd'];
@@ -199,7 +206,7 @@ class MySQL {
 
     /**
      * 释放资源
-     * @param $resource
+     * @param $db
      */
     public function release($db) {
         unset($this->fd2db[$db->clientFd]);
@@ -207,29 +214,30 @@ class MySQL {
         $db->buffer = '';
         $db->eofCnt = 0;
         $db->in_tran = 0;
-        array_push($this->idelPool, $db);
+        array_push($this->idlePool, $db);
         $this->doTask();
     }
 
     /**
      * 移除资源
-     * @param $resource
+     * @param $db
      * @return bool
      */
     function remove($db) {
-        foreach ($this->idelPool as $k => $res) {
+        foreach ($this->idlePool as $k => $res) {
             if ($res === $db) {
-                unset($this->idelPool[$k]);
+                unset($this->idlePool[$k]);
                 $this->usedSize--;
                 $this->table->decr(MYSQL_CONN_KEY, $this->datasource);
                 return true;
             }
         }
+        return false;
     }
 
     /**
      * 移除排队和解除事务
-     * @param $resource
+     * @param $fd
      * @return bool
      */
     function removeTask($fd) {
@@ -250,34 +258,6 @@ class MySQL {
                 return true;
             }
         }
+        return false;
     }
-
-    public function pingPool() {
-        $this->pingFlag = true;
-        foreach ($this->idelPool as $db) {
-            $binaryData = $this->protocal->packPingData();
-            $db->send($binaryData);
-        }
-    }
-
-    function isFree() {
-        return $this->taskQueue->count() == 0 and $this->idlePool->count() == count($this->resourcePool);
-    }
-
-    /**
-     * 关闭连接池
-     */
-    function close() {
-        foreach ($this->resourcePool as $conn) {
-            /**
-             * @var $conn \swoole_mysql
-             */
-            $conn->close();
-        }
-    }
-
-    function __destruct() {
-        $this->close();
-    }
-
 }

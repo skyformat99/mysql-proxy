@@ -6,6 +6,9 @@ namespace Core;
 
 class MysqlProxy {
 
+    /**
+     * @var \swoole_server
+     */
     private $serv = null;
 
     /*
@@ -18,8 +21,9 @@ class MysqlProxy {
      * PROXY的ip 用于proxy集群上报加到key里面
      */
     private $localip = null;
-    /*
-     * task 和worker之间共享数据用
+
+    /**
+     * @var \swoole_table task 和worker之间共享数据用
      */
     private $table = null;
 
@@ -42,6 +46,21 @@ class MysqlProxy {
     const COM_PREPARE = 22;
 
     private $targetConfig = array();
+
+    /**
+     * @var \MysqlProtocol
+     */
+    private $protocol;
+
+    /**
+     * @var MySQL[]
+     */
+    private $pool;
+
+    /**
+     * @var array
+     */
+    private $clients = [];
 
     private function createTable() {
         $this->table = new \swoole_table(1024);
@@ -80,9 +99,9 @@ class MysqlProxy {
         );
         $this->getConfig();
         $this->createTable();
-        $this->protocal = new \MysqlProtocol();
+        $this->protocol = new \MysqlProtocol();
         $this->pool = array(); //mysql的池子
-        $this->client = array(); //连到proxy的客户端
+        $this->clients = array(); //连到proxy的客户端
         $this->serv->on('receive', array($this, 'OnReceive'));
         $this->serv->on('connect', array($this, 'OnConnect'));
         $this->serv->on('close', array($this, 'OnClose'));
@@ -107,36 +126,40 @@ class MysqlProxy {
         $this->serv->start();
     }
 
-    public function OnReceive($serv, $fd, $from_id, $data) {
-        if ($this->client[$fd]['status'] == self::CONNECT_SEND_AUTH) {
-            $dbName = $this->protocal->getDbName($data);
+    public function OnReceive(\swoole_server $serv, $fd, $from_id, $data) {
+        if ($this->clients[$fd]['status'] == self::CONNECT_SEND_AUTH) {
+            $dbName = $this->protocol->getDbName($data);
             if (!isset($this->targetConfig[$dbName])) {
                 echo "db $dbName can not find\n";
-                $binaryData = $this->protocal->packErrorData(10000, "db '$dbName' can not find in mysql proxy config");
-                return $this->serv->send($fd, $binaryData);
+                $binaryData = $this->protocol->packErrorData(10000, "db '$dbName' can not find in mysql proxy config");
+                $this->serv->send($fd, $binaryData);
+                return;
             }
-            $this->protocal->sendConnectOk($serv, $fd);
-            $this->client[$fd]['status'] = self::CONNECT_SEND_ESTA;
-            $this->client[$fd]['dbName'] = $dbName;
-            //   $this->client[$fd]['clientAuthData'] = $data;
+            $this->protocol->sendConnectOk($serv, $fd);
+            $this->clients[$fd]['status'] = self::CONNECT_SEND_ESTA;
+            $this->clients[$fd]['dbName'] = $dbName;
+            //   $this->clients[$fd]['clientsAuthData'] = $data;
             return;
         }
-        if ($this->client[$fd]['status'] == self::CONNECT_SEND_ESTA) {
-            $ret = $this->protocal->getSql($data);
+        if ($this->clients[$fd]['status'] == self::CONNECT_SEND_ESTA) {
+            $ret = $this->protocol->getSql($data);
             $cmd = $ret['cmd'];
             $sql = $ret['sql'];
             if ($cmd !== self::COM_QUERY) {
                 if ($cmd === self::COM_PREPARE) {
-                    $binary = $this->protocal->packErrorData(ERROR_PREPARE, "proxy do not support remote prepare , (PDO example:set PDO::ATTR_EMULATE_PREPARES=true)");
-                    return $this->serv->send($fd, $binary);
+                    $binary = $this->protocol->packErrorData(ERROR_PREPARE, "proxy do not support remote prepare , (PDO example:set PDO::ATTR_EMULATE_PREPARES=true)");
+                    $this->serv->send($fd, $binary);
+                    return;
                 }
                 if ($cmd === self::COM_QUIT) {//直接关闭和client链接
-                    return $serv->close($fd, true);
+                    $serv->close($fd, true);
+                    return;
                 }
-                $binary = $this->protocal->packOkData(0, 0);
-                return $this->serv->send($fd, $binary);
+                $binary = $this->protocol->packOkData(0, 0);
+                $this->serv->send($fd, $binary);
+                return;
             }
-            $dbName = $this->client[$fd]['dbName'];
+            $dbName = $this->clients[$fd]['dbName'];
             $pre = substr($sql, 0, 5);
             if (stristr($pre, "select") || stristr($pre, "show")) {
                 if (isset($this->targetConfig[$dbName]['slave'])) {
@@ -154,54 +177,54 @@ class MysqlProxy {
                 $pool = new MySQL($config, $this->table, array($this, 'OnResult'));
                 $this->pool[$dataSource] = $pool;
             }
-            $this->client[$fd]['start'] = microtime(true) * 1000;
-            $this->client[$fd]['sql'] = $sql;
-            $this->client[$fd]['datasource'] = $dataSource;
+            $this->clients[$fd]['start'] = microtime(true) * 1000;
+            $this->clients[$fd]['sql'] = $sql;
+            $this->clients[$fd]['datasource'] = $dataSource;
             $this->pool[$dataSource]->query($data, $fd);
         }
     }
 
     public function OnResult($binaryData, $fd) {
-        if (isset($this->client[$fd])) {//有可能已经关闭了
+        if (isset($this->clients[$fd])) {//有可能已经关闭了
             $this->serv->send($fd, $binaryData);
             if (RECORD_QUERY) {
                 $end = microtime(true) * 1000;
                 $logData = array(
-                    'start' => $this->client[$fd]['start'],
+                    'start' => $this->clients[$fd]['start'],
                     'size' => strlen($binaryData),
                     'end' => $end,
-                    'sql' => $this->client[$fd]['sql'],
-                    'datasource' => $this->client[$fd]['datasource'],
-                    'client_ip' => $this->client[$fd]['client_ip'],
+                    'sql' => $this->clients[$fd]['sql'],
+                    'datasource' => $this->clients[$fd]['datasource'],
+                    'client_ip' => $this->clients[$fd]['client_ip'],
                 );
                 $this->serv->task($logData);
             }
         }
     }
 
-    public function OnConnect($serv, $fd) {
+    public function OnConnect(\swoole_server $serv, $fd) {
         echo "client connect $fd\n";
-        $this->client[$fd]['status'] = self::CONNECT_START;
-        $this->protocal->sendConnectAuth($serv, $fd);
-        $this->client[$fd]['status'] = self::CONNECT_SEND_AUTH;
+        $this->clients[$fd]['status'] = self::CONNECT_START;
+        $this->protocol->sendConnectAuth($serv, $fd);
+        $this->clients[$fd]['status'] = self::CONNECT_SEND_AUTH;
         $info = $serv->getClientInfo($fd);
         if ($info) {
-            $this->client[$fd]['client_ip'] = $info['remote_ip'];
+            $this->clients[$fd]['client_ip'] = $info['remote_ip'];
         } else {
-            $this->client[$fd]['client_ip'] = 0;
+            $this->clients[$fd]['client_ip'] = 0;
         }
         $this->table->incr(MYSQL_CONN_KEY, "client_count");
     }
 
-    public function OnClose($serv, $fd, $from_id) {
+    public function OnClose(\swoole_server $serv, $fd) {
         echo "client close $fd\n";
         //todo del from client
         $this->table->decr(MYSQL_CONN_KEY, "client_count");
         //remove from task queue,if possible
-        if (isset($this->client[$fd]['datasource'])) {
-            $this->pool[$this->client[$fd]['datasource']]->removeTask($fd);
+        if (isset($this->clients[$fd]['datasource'])) {
+            $this->pool[$this->clients[$fd]['datasource']]->removeTask($fd);
         }
-        unset($this->client[$fd]);
+        unset($this->clients[$fd]);
     }
 
 //    public function OnStart($serv)
@@ -209,7 +232,7 @@ class MysqlProxy {
 //        
 //    }
 
-    public function OnWorkerStart($serv, $worker_id) {
+    public function OnWorkerStart(\swoole_server $serv, $worker_id) {
         if ($worker_id >= $serv->setting['worker_num']) {
             $serv->tick(3000, array($this, "OnTimer"));
 //            $serv->tick(5000, array($this, "OnPing"));
@@ -223,7 +246,7 @@ class MysqlProxy {
     }
 
 //____________________________________________________task worker__________________________________________________
-    //task callbakc 上报连接数
+    //task callback 上报连接数
     public function OnTimer($serv) {
         $count = $this->table->get(MYSQL_CONN_KEY);
         if (empty($this->redis)) {
@@ -236,7 +259,7 @@ class MysqlProxy {
          * count layout
          *                                                hash
          * 
-         *  datasouce1      datasouce2    datasouce3   client_count(客户端链接)
+         *  datasource1      datasource2    datasource3   client_count(客户端链接)
          *       ↓                           ↓                     ↓                    ↓
          *       1                           1                     0                   10
          * 

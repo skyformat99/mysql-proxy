@@ -12,7 +12,10 @@ class HomeController extends Controller
         $redis->connect("127.0.0.1", 6379);
 //        $list = $redis->lrange("sqllist".$date, 0, 10000);
         $date = date("Y-m-d");
-        $ret = [];
+        $ret = [
+            'slowTop' => [],
+            'bigTop'  => []
+        ];
         $slowArr = $redis->zRevRange(REDIS_SLOW . $date, 0, 100);//汇总所有的proxy
         foreach ($slowArr as $k => $ser)
         {
