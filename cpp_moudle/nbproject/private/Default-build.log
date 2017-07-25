@@ -1,2 +1,0 @@
-c++ -DHAVE_CONFIG_H -g -O3 -o mysql_proxy.so  -fPIC -shared mysql_proxy.cpp  `php-config --includes` -std=c++11 -I"/src/PHP-X"/include -I`php-config --include-dir`/ext/swoole/include -I`php-config --include-dir`/ext/swoole
-#	c++ -DHAVE_CONFIG_H -g -o mysql_proxy.so  -fPIC -shared mysql_proxy.cpp  sha1.c `php-config --includes` -std=c++0x -I/include -I

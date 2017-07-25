@@ -1,3 +1,4 @@
-/nbproject/private/
+/nbproject
+/cpp_module/nbproject
 .idea/
 .vscode/
